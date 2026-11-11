@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://tixstudio.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy"
+    content="accelerometer=(), autoplay=(), camera=(), clipboard-read=(), clipboard-write=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
+  <meta name="description"
+    content="TIX Work — Selected campaigns, productions, and visual systems across Fashion, Jewelry, Perfume, Food, Events, and Real Estate.">
+  <title>The Work | TIX Marketing &amp; Production Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/work.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/tix.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/tix.png">
+  <link rel="apple-touch-icon" href="/assets/images/tix.png">
+</head>
+
+<body>
+
+  <!-- NAV injected by layout.js -->
+
+  <main id="main-content">
+
+    <!-- ═══════════════════════════════════════════
+         WORK HERO
+    ════════════════════════════════════════════ -->
+    <section class="work-hero" aria-label="Work portfolio hero">
+
+      <div class="work-hero__bg" aria-hidden="true">
+        <img
+          src="../assets/images/Gradient.png"
+          alt=""
+          class="work-hero__bg-img"
+          width="1920"
+          height="1080"
+          loading="eager"
+          fetchpriority="high">
+      </div>
+      <div class="work-hero__grain" aria-hidden="true"></div>
+
+      <div class="work-hero__inner">
+        <div class="work-hero__copy">
+          <h1 class="work-hero__title">THE WORK</h1>
+          <p class="work-hero__sub">Selected campaigns, productions, and visual systems.</p>
+          <div class="work-hero__actions">
+            <span class="work-hero__pill">
+              24 Projects — 5 Industries
+            </span>
+          </div>
+        </div>
+
+        <div class="work-hero__bento">
+          <img
+            src="../assets/images/Images%20Container.png"
+            alt="Selected TIX campaign photography collage"
+            class="work-hero__bento-img"
+            width="1400"
+            height="900"
+            loading="eager"
+            fetchpriority="high">
+        </div>
+      </div>
+
+      <!-- Scroll ticker — ends the hero -->
+      <div class="work-ticker" aria-hidden="true">
+        <div class="marquee">
+          <div class="marquee__track">
+            <span class="marquee__item">EVENT PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">COMMERCIAL PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">PRODUCT PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">WEDDING PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">LANDSCAPE PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">BRANDING PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">PORTRAIT PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">EVENT PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">COMMERCIAL PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">PRODUCT PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">WEDDING PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">LANDSCAPE PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">BRANDING PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">PORTRAIT PHOTOGRAPHY <span class="marquee__sep">✦</span></span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         WORK GALLERY — glass accordion stack
+    ════════════════════════════════════════════ -->
+    <section class="work-gallery" aria-label="Work gallery" id="work-categories">
+      <div class="work-gallery__glow" aria-hidden="true"></div>
+
+      <div class="work-gallery__inner">
+
+        <div class="work-gallery__filter-wrap">
+          <button type="button" class="work-gallery__filter" id="work-filter-btn" aria-expanded="true"
+            aria-controls="work-filter-menu">
+            Filter work
+            <span class="work-gallery__filter-chevron" aria-hidden="true">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+          <ul class="work-gallery__menu" id="work-filter-menu" role="listbox" hidden>
+            <li><a href="#wg-fashion" data-jump="fashion">Fashion</a></li>
+            <li><a href="#wg-jewelry" data-jump="jewelry">Jewelry &amp; Luxury</a></li>
+            <li><a href="#wg-beauty" data-jump="beauty">Perfume / Beauty</a></li>
+            <li><a href="#wg-food" data-jump="food">Food &amp; Beverage</a></li>
+            <li><a href="#wg-events" data-jump="events">Events &amp; Concerts</a></li>
+            <li><a href="#wg-realestate" data-jump="realestate">Real Estate &amp; Corporates</a></li>
+          </ul>
+        </div>
+
+        <!-- ── FASHION ── -->
+        <article class="wg-cat is-open" data-category="fashion" id="wg-fashion">
+          <header class="wg-cat__head wg-cat__head--start">
+            <div class="wg-cat__brand">
+              <span class="wg-arrow wg-arrow--first" aria-hidden="true">
+                <img src="../assets/images/first-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="wg-cat__tix-text">TIX</span>
+              <h2 class="wg-cat__title">WORK GALLERY</h2>
+            </div>
+            <div class="wg-cat__aside">
+              <h3 class="wg-cat__name">FASHION</h3>
+              <button type="button" class="wg-arrow wg-arrow--second" aria-expanded="true"
+                aria-controls="wg-panel-fashion">
+                <img src="../assets/images/second-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  aria-hidden="true">
+                  <path d="M17 7L7 17M7 17H15M7 17V9" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="wg-panel" id="wg-panel-fashion" role="region" aria-label="Fashion gallery">
+            <div class="wg-panel__meta">
+              <h4 class="wg-panel__eyebrow">FRAMES OF IDENTITY</h4>
+              <p class="wg-panel__desc">EDITORIAL FASHION PHOTOGRAPHY CRAFTED TO SHAPE PERCEPTION, PRESENCE, AND BRAND
+                DESIRE.</p>
+            </div>
+            <div class="wg-strip" data-strip>
+              <button type="button" class="wg-card is-active" data-label="STUDIO SESSIONS">
+                <div class="wg-card__media">
+                  <img src="../assets/images/fashion1.png" alt="Fashion editorial 01" loading="lazy">
+                </div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> STUDIO
+                    SESSIONS</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="MODEL CASTING">
+                <div class="wg-card__media">
+                  <img src="../assets/images/fashion2.png" alt="Fashion editorial 02" loading="lazy">
+                </div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> MODEL
+                    CASTING</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="PRODUCT STYLING">
+                <div class="wg-card__media">
+                  <img src="../assets/images/fashion3.png" alt="Fashion editorial 03" loading="lazy">
+                </div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> PRODUCT
+                    STYLING</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="CREATIVE DIRECTION">
+                <div class="wg-card__media">
+                  <img src="../assets/images/fashion4.png" alt="Fashion editorial 04" loading="lazy">
+                </div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> CREATIVE
+                    DIRECTION</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="FASHION PHOTOGRAPHY">
+                <div class="wg-card__media">
+                  <img src="../assets/images/fashion%205.png" alt="Fashion editorial 05" loading="lazy">
+                </div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> FASHION
+                    PHOTOGRAPHY</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── JEWELRY & LUXURY ── -->
+        <article class="wg-cat is-open" data-category="jewelry" id="wg-jewelry">
+          <header class="wg-cat__head wg-cat__head--zig-right">
+            <div class="wg-cat__aside">
+              <h3 class="wg-cat__name">JEWELRY &amp; LUXURY</h3>
+              <button type="button" class="wg-arrow wg-arrow--second" aria-expanded="true"
+                aria-controls="wg-panel-jewelry">
+                <img src="../assets/images/third-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback wg-arrow__fallback--flip" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="wg-panel" id="wg-panel-jewelry" role="region" aria-label="Jewelry gallery">
+            <div class="wg-panel__meta">
+              <h4 class="wg-panel__eyebrow">OBJECTS OF DESIRE</h4>
+              <p class="wg-panel__desc">LUXURY PRODUCT PHOTOGRAPHY FOCUSED ON TEXTURE, DETAIL, CRAFTSMANSHIP, AND VISUAL SEDUCTION.</p>
+            </div>
+            <div class="wg-strip" data-strip>
+              <button type="button" class="wg-card is-active" data-label="FINE JEWELRY">
+                <div class="wg-card__media"><img src="../assets/images/je1.jpg" alt="Jewelry 01" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> FINE
+                    JEWELRY</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="CAMPAIGN STILLS">
+                <div class="wg-card__media"><img src="../assets/images/je4.jpg" alt="Jewelry 02" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> CAMPAIGN
+                    STILLS</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="WATCH DETAIL">
+                <div class="wg-card__media"><img src="../assets/images/je2.jpg" alt="Jewelry 03" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> WATCH
+                    DETAIL</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="LOOKBOOK">
+                <div class="wg-card__media"><img src="../assets/images/je5.jpg" alt="Jewelry 04" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> LOOKBOOK</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="LUXURY FILM">
+                <div class="wg-card__media"><img src="../assets/images/je3.jpg" alt="Jewelry 05" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> LUXURY
+                    FILM</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── PERFUME / BEAUTY ── -->
+        <article class="wg-cat is-open" data-category="beauty" id="wg-beauty">
+          <header class="wg-cat__head wg-cat__head--zig-right">
+            <div class="wg-cat__aside">
+              <h3 class="wg-cat__name">PERFUME / BEAUTY</h3>
+              <button type="button" class="wg-arrow wg-arrow--second" aria-expanded="true"
+                aria-controls="wg-panel-beauty">
+                <img src="../assets/images/fourth-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  aria-hidden="true">
+                  <path d="M17 7L7 17M7 17H15M7 17V9" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="wg-panel" id="wg-panel-beauty" role="region" aria-label="Beauty gallery">
+            <div class="wg-panel__meta">
+              <h4 class="wg-panel__eyebrow">SCENT IN MOTION</h4>
+              <p class="wg-panel__desc">LUXURY BEAUTY AND FRAGRANCE VISUALS SHAPED THROUGH ATMOSPHERE, TEXTURE, AND EMOTION.</p>
+            </div>
+            <div class="wg-strip" data-strip>
+              <button type="button" class="wg-card is-active" data-label="BOTTLE STILLS">
+                <div class="wg-card__media"><img src="../assets/images/b1.jpg" alt="Beauty 01" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> BOTTLE
+                    STILLS</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="TEXTURE">
+                <div class="wg-card__media"><img src="../assets/images/b2.jpg" alt="Beauty 02" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> TEXTURE</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="CAMPAIGN">
+                <div class="wg-card__media"><img src="../assets/images/b4.jpg" alt="Beauty 03" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> CAMPAIGN</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="EDITORIAL">
+                <div class="wg-card__media"><img src="../assets/images/b3.jpg" alt="Beauty 04" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> EDITORIAL</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="BEAUTY FILM">
+                <div class="wg-card__media"><img src="../assets/images/b5.jpg" alt="Beauty 05" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> BEAUTY
+                    FILM</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── FOOD & BEVERAGE ── -->
+        <article class="wg-cat is-open" data-category="food" id="wg-food">
+          <header class="wg-cat__head wg-cat__head--zig-right">
+            <div class="wg-cat__aside">
+              <h3 class="wg-cat__name">FOOD &amp; BEVERAGE</h3>
+              <button type="button" class="wg-arrow wg-arrow--second" aria-expanded="true"
+                aria-controls="wg-panel-food">
+                <img src="../assets/images/fifth-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback wg-arrow__fallback--flip" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="wg-panel" id="wg-panel-food" role="region" aria-label="Food gallery">
+            <div class="wg-panel__meta">
+              <h4 class="wg-panel__eyebrow">CRAFTED APPETITE</h4>
+              <p class="wg-panel__desc">VISUAL CAMPAIGNS DESIGNED TO TRANSFORM PRODUCTS INTO SENSORY EXPERIENCES.</p>
+            </div>
+            <div class="wg-strip" data-strip>
+              <button type="button" class="wg-card is-active" data-label="PLATING">
+                <div class="wg-card__media"><img src="../assets/images/f1.jpg" alt="Food 01" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> PLATING</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="BEVERAGE">
+                <div class="wg-card__media"><img src="../assets/images/B.jpg" alt="Food 02" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> BEVERAGE</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="EDITORIAL">
+                <div class="wg-card__media"><img src="../assets/images/f3.jpg" alt="Food 03" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> EDITORIAL</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="MENU">
+                <div class="wg-card__media"><img src="../assets/images/f4.jpg" alt="Food 04" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> MENU</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="CAMPAIGN">
+                <div class="wg-card__media"><img src="../assets/images/f2.jpg" alt="Food 05" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> CAMPAIGN</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── EVENTS & CONCERTS ── -->
+        <article class="wg-cat is-open" data-category="events" id="wg-events">
+          <header class="wg-cat__head wg-cat__head--zig-right">
+            <div class="wg-cat__aside">
+              <h3 class="wg-cat__name">EVENTS &amp; CONCERTS</h3>
+              <button type="button" class="wg-arrow wg-arrow--second" aria-expanded="true"
+                aria-controls="wg-panel-events">
+                <img src="../assets/images/sixth-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                  aria-hidden="true">
+                  <path d="M17 7L7 17M7 17H15M7 17V9" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="wg-panel" id="wg-panel-events" role="region" aria-label="Events gallery">
+            <div class="wg-panel__meta">
+              <h4 class="wg-panel__eyebrow">LIVE IN MOTION</h4>
+              <p class="wg-panel__desc">CONCERTS, CULTURAL EVENTS, AND LIVE EXPERIENCES CAPTURED THROUGH MOVEMENT, ATMOSPHERE, CROWD ENERGY, AND CINEMATIC STORYTELLING.</p>
+            </div>
+            <div class="wg-strip" data-strip>
+              <button type="button" class="wg-card is-active" data-label="LIVE STAGE">
+                <div class="wg-card__media"><img src="../assets/images/sherien.jpg" alt="Event 01" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> LIVE
+                    STAGE</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="BACKSTAGE">
+                <div class="wg-card__media"><img src="../assets/images/e1.jpg" alt="Event 02" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> BACKSTAGE</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="CROWD">
+                <div class="wg-card__media"><img src="../assets/images/e2.jpg" alt="Event 03" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> CROWD</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="LIGHTING">
+                <div class="wg-card__media"><img src="../assets/images/e3.jpg" alt="Event 04" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> LIGHTING</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="AFTERMOVIE">
+                <div class="wg-card__media"><img src="../assets/images/e4.jpg" alt="Event 05" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> AFTERMOVIE</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── REAL ESTATE & CORPORATES ── -->
+        <article class="wg-cat is-open" data-category="realestate" id="wg-realestate">
+          <header class="wg-cat__head wg-cat__head--zig-right">
+            <div class="wg-cat__aside">
+              <h3 class="wg-cat__name">REAL ESTATE &amp; CORPORATES</h3>
+              <button type="button" class="wg-arrow wg-arrow--second" aria-expanded="true"
+                aria-controls="wg-panel-realestate">
+                <img src="../assets/images/seventh-arrow.png" alt="" class="wg-arrow__img" width="56" height="40">
+                <svg class="wg-arrow__fallback wg-arrow__fallback--flip" width="22" height="22" viewBox="0 0 24 24"
+                  fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7M17 7H9M17 7V15" stroke="white" stroke-width="2.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <div class="wg-panel" id="wg-panel-realestate" role="region" aria-label="Real estate gallery">
+            <div class="wg-panel__meta">
+              <h4 class="wg-panel__eyebrow">SPACES IN FRAME</h4>
+              <p class="wg-panel__desc">ARCHITECTURAL AND REAL ESTATE VISUALS CRAFTED TO CAPTURE ATMOSPHERE, DESIGN, SCALE, AND MODERN LIVING THROUGH CINEMATIC PHOTOGRAPHY.</p>
+            </div>
+            <div class="wg-strip" data-strip>
+              <button type="button" class="wg-card is-active" data-label="INTERIOR">
+                <div class="wg-card__media"><img src="../assets/images/r1.png" alt="Real estate 01" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> INTERIOR</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="EXTERIOR">
+                <div class="wg-card__media"><img src="../assets/images/r5.png" alt="Real estate 02" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> EXTERIOR</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="LIFESTYLE">
+                <div class="wg-card__media"><img src="../assets/images/r2.png" alt="Real estate 03" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> LIFESTYLE</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="CORPORATE">
+                <div class="wg-card__media"><img src="../assets/images/r4.png" alt="Real estate 04" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> CORPORATE</span>
+                </span>
+              </button>
+              <button type="button" class="wg-card" data-label="DETAIL">
+                <div class="wg-card__media"><img src="../assets/images/r6.jpg" alt="Real estate 05" loading="lazy"></div>
+                <span class="wg-card__tag">
+                  <span class="wg-card__tag-view">VIEW ALL <span class="wg-card__tag-go" aria-hidden="true">→</span></span>
+                  <span class="wg-card__tag-label"><span class="wg-card__dot" aria-hidden="true">↗</span> DETAIL</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         LENS SLIDESHOW — scroll-triggered curved ribbon
+    ════════════════════════════════════════════ -->
+    <section class="work-lens" data-work-lens aria-label="Story frames">
+      <div class="work-lens__sticky">
+        <div class="image-grid-wrapper">
+          <div class="image-grid" data-work-lens-track role="region"
+            aria-label="Scroll-driven photo slideshow">
+            <div>
+              <img src="../assets/images/g1.jpg" alt="Perfume campaign still" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/e1.jpg" alt="Fashion editorial portrait" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/jw.jpg" alt="Jewelry campaign portrait" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/mainw.jpg" alt="Luxury watch product still" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/g.jpg" alt="Fashion campaign visual" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/f1.jpg" alt="Beauty campaign visual" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/w.png" alt="Editorial fashion frame" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/e.png" alt="Production still" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/r1.png" alt="Perfume campaign still" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/mode.png" alt="Fashion editorial portrait" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/je3.jpg" alt="Jewelry campaign portrait" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/r2.png" alt="Luxury watch product still" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/mod.png" alt="Fashion campaign visual" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/lilac.png" alt="Beauty campaign visual" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/j5.png" alt="Editorial fashion frame" loading="lazy" draggable="false">
+            </div>
+            <div>
+              <img src="../assets/images/f3.jpg" alt="Production still" loading="lazy" draggable="false">
+            </div>
+          </div>
+        </div>
+
+        <div class="work-lens__copy">
+          <h2 class="work-lens__title">Every frame tells part of the story.</h2>
+          <p class="work-lens__sub">
+            From fashion editorials to branded experiences<br>
+            and cinematic production.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER + CTA injected by layout.js -->
+
+  <script src="../js/layout.js" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+
+</html>

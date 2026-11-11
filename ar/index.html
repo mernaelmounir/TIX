@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; img-src 'self' data: https://tixstudio.com; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline'; connect-src 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy"
+    content="accelerometer=(), autoplay=(), camera=(), clipboard-read=(), clipboard-write=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
+  <meta name="description"
+    content="TIX استوديو إبداعي وتسويقي متكامل في الإسكندرية، يجمع بين الاستراتيجية والإنتاج والتصميم والتجارب الرقمية لبناء علامات تجارية لا تُنسى.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <title>TIX | استوديو إبداعي وتسويقي في الإسكندرية</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://tixstudio.com/ar/">
+  <link rel="alternate" hreflang="en" href="https://tixstudio.com/">
+  <link rel="alternate" hreflang="ar" href="https://tixstudio.com/ar/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TIX Studio">
+  <meta property="og:title" content="TIX — استوديو إبداعي وتسويقي في الإسكندرية">
+  <meta property="og:description"
+    content="استراتيجية وإنتاج وتصميم وتجارب رقمية تحت رؤية واحدة.">
+  <meta property="og:url" content="https://tixstudio.com/ar/">
+  <meta property="og:image" content="https://tixstudio.com/assets/images/hero-bg.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ar_EG">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TIX — استوديو إبداعي وتسويقي">
+  <meta name="twitter:description"
+    content="نبني علامات تجارية لا تُنسى من خلال الاستراتيجية والإنتاج والتصميم والتجارب الرقمية.">
+  <meta name="twitter:image" content="https://tixstudio.com/assets/images/hero-bg.png">
+
+  <!-- Theme & Manifest -->
+  <meta name="theme-color" content="#8B0000">
+  <link rel="manifest" href="../site.webmanifest">
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cookie&family=Lavishly+Yours&family=Readex+Pro:wght@160..700&display=swap">
+
+  <!-- Google Fonts (moved from CSS @import for performance) -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,900&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/home.css">
+
+  <!-- Preload hero image for LCP -->
+  <link rel="preload" as="image" href="../assets/images/hero-bg.png" fetchpriority="high">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/tix.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/tix.png">
+  <link rel="apple-touch-icon" href="/assets/images/tix.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://tixstudio.com/#organization",
+        "name": "TIX Studio",
+        "url": "https://tixstudio.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tixstudio.com/assets/images/tixlogo.png"
+        },
+        "description": "استوديو إبداعي وتسويقي متكامل في الإسكندرية، مصر.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Alexandria",
+          "addressCountry": "EG"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tixstudio.com/#website",
+        "url": "https://tixstudio.com",
+        "name": "TIX Studio",
+        "publisher": { "@id": "https://tixstudio.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://tixstudio.com/ar/#webpage",
+        "url": "https://tixstudio.com/ar/",
+        "name": "TIX — استوديو إبداعي وتسويقي في الإسكندرية",
+        "description": "استراتيجية وإنتاج وتصميم وتجارب رقمية تحت رؤية واحدة.",
+        "isPartOf": { "@id": "https://tixstudio.com/#website" },
+        "about": { "@id": "https://tixstudio.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "الرئيسية",
+            "item": "https://tixstudio.com/ar/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <!-- NAV + Skip link injected by layout.js -->
+
+<!-- ═══════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <section class="hero" aria-label="مقدمة TIX">
+
+      <!-- Full-bleed background image -->
+      <div class="hero__bg" aria-hidden="true">
+        <img src="../HERO.png" alt="" class="hero__bg-img" width="1920" height="1080" loading="eager"
+          fetchpriority="high">
+        <div class="hero__bg-overlay"></div>
+      </div>
+
+      <div class="hero__grid-pattern" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__content container">
+
+          <!-- Center TIX PNG logo -->
+          <div class="hero__logo-wrap">
+            <img src="../assets/images/tixx.png" alt="TIX وكالة إبداعية" class="hero__logo-img">
+          </div>
+
+          <h2 class="hero__headline-light">لا نصنع المحتوى.</h2>
+          <h2 class="hero__headline-bold">نصنع الأثر.</h2>
+
+          <p class="hero__desc">
+            نكسر المألوف برؤية سينمائية وأناقة لافتة، ونبني عوالم متكاملة للعلامات التجارية لا مجرد محتوى.
+          </p>
+
+          <!-- Stat badges -->
+          <div class="hero__stats-row">
+            <div class="hero__stat-pill">حملة نشطة: 12</div>
+            <div class="hero__stat-pill">عميلًا حول العالم: 28</div>
+            <div class="hero__stat-pill">مشروعًا منجزًا: 85+</div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hero__actions">
+            <a href="../pages/about.html" class="btn btn--crimson btn--lg">
+              اكتشف الاستوديو &larr;
+            </a>
+          </div>
+
+        </div><!-- /.hero__content -->
+      </div><!-- /.hero__inner -->
+
+
+    </section>
+
+
+
+    <!-- ============================================================
+     EXPLORE THE FRAME
+============================================================ -->
+
+  <!-- EXPLORE THE FRAME SHOWCASE SECTION -->
+  <section class="tix-frame-section observer-target">
+    
+    <!-- Top White Tab Header -->
+    <div class="tix-tab-header-wrapper">
+      <div class="tix-frame-tab">
+        <h2 lang="en" dir="ltr">Explore the Frame</h2>
+      </div>
+    </div>
+
+    <!-- 100% Full Width White Panel Body -->
+    <div class="tix-drape-bg">
+      <div class="tix-strategy-headers">
+        <span lang="en" dir="ltr">Brand Strategy</span>
+        <span lang="en" dir="ltr">Visual Identity</span>
+        <span lang="en" dir="ltr">Audience Impact</span>
+      </div>
+
+      <div class="tix-cards-container">
+        <!-- 5. EVENTS (Small Edge Left) -->
+        <div class="tix-oval-card tix-card-edge delay-3 observer-target">
+          <img src="../events.jpg" alt="فعاليات">
+          <span class="tix-card-label">فعاليات</span>
+        </div>
+
+        <!-- 2. PERFUMES (Medium Side Left) -->
+        <div class="tix-oval-card tix-card-mid delay-2 observer-target">
+          <img src="../perfumes.jpg" alt="عطور">
+          <span class="tix-card-label">عطور</span>
+        </div>
+
+        <!-- 1. FASHION (Longest Center Card - Drops In 1st) -->
+        <div class="tix-oval-card tix-card-center delay-1 observer-target">
+          <img src="../fashion.jpg" alt="أزياء">
+          <span class="tix-card-label">أزياء</span>
+        </div>
+
+        <!-- 3. JEWELRY (Medium Side Right) -->
+        <div class="tix-oval-card tix-card-mid delay-2 observer-target">
+          <img src="../jewelry.jpg" alt="مجوهرات">
+          <span class="tix-card-label">مجوهرات</span>
+        </div>
+
+        <!-- 4. FOOD (Small Edge Right) -->
+        <div class="tix-oval-card tix-card-edge delay-3 observer-target">
+          <img src="../food.jpg" alt="مأكولات">
+          <span class="tix-card-label">مأكولات</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+    <!-- ═══════════════════════════════════════════
+       CONNECTION ISN'T OPTIONAL
+  ════════════════════════════════════════════ -->
+    <section class="connection" aria-label="Connection isn’t optional" lang="en" dir="ltr">
+
+      <div class="connection__text">
+
+        <p class="connection__title">
+          Connection isn’t optional
+        </p>
+
+        <p class="connection__body" lang="ar" dir="rtl">
+          إذا لم يشعر جمهورك بما تقدمه، فلن يتفاعل معه. نصمم علامات تجارية تقرّب الناس منها، لا تدفعهم لتجاوزها.
+        </p>
+
+      </div>
+
+      <div class="connection__img-wrap">
+
+        <img src="../assets/images/w.png" class="connection__img img1" alt="حملة أزياء من TIX" width="400"
+          height="500" loading="lazy">
+        <img src="../assets/images/e.png" class="connection__img img2" alt="تصوير تحريري وإنتاج بصري من TIX" width="400"
+          height="500" loading="lazy">
+        <img src="../assets/images/mod.png" class="connection__img img3" alt="تصميم علامة تجارية للأزياء من TIX"
+          width="400" height="500" loading="lazy">
+
+      </div>
+
+      <div class="connection__bottom-row">
+
+        <div class="connection__img-wrap connection__img-wrap--sm">
+
+          <img src="../assets/images/per.png" class="connection__img img1" alt="تصوير منتجات عطور من TIX"
+            width="300" height="400" loading="lazy">
+          <img src="../assets/images/mode.png" class="connection__img img2" alt="تصوير تحريري للأزياء من TIX" width="300"
+            height="400" loading="lazy">
+          <img src="../assets/images/lilac.png" class="connection__img img-extra" alt="حملة تجميلية من TIX"
+            width="300" height="400" loading="lazy">
+          <img src="../assets/images/pp.png" class="connection__img img3" alt="مشروع توجيه إبداعي من TIX" width="300"
+            height="400" loading="lazy">
+
+        </div>
+
+        <div class="connection__tagline">
+
+          <img src="../assets/images/Ellipse 3.png" class="circle" alt="" aria-hidden="true" width="200" height="200"
+            loading="lazy">
+
+          <p>
+            للعلامات<br>
+            التي ترفض<br>
+            أن تمرّ<br>
+            دون أثر.
+          </p>
+
+        </div>
+
+        <div class="connection__img-wrap connection__img-wrap--sm1">
+
+          <img src="../assets/images/m2.png" class="connection__img img1" alt="جلسة تصوير أزياء من TIX" width="300"
+            height="400" loading="lazy">
+          <img src="../assets/images/w2.png" class="connection__img img2" alt="تصوير علامة تجارية من TIX" width="300"
+            height="400" loading="lazy">
+          <img src="../assets/images/m.png" class="connection__img img-extra" alt="حملة إبداعية من TIX" width="300"
+            height="400" loading="lazy">
+          <img src="../assets/images/j2.png" class="connection__img img3" alt="تصوير مجوهرات من TIX" width="300"
+            height="400" loading="lazy">
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+       DISRUPT — sticky scroll-driven services pin
+  ════════════════════════════════════════════ -->
+    <section class="disrupt" data-disrupt-pin aria-label="خدمات الاستوديو">
+      <div class="disrupt__sticky">
+
+        <!-- Full-bleed grad stage (touches both edges) -->
+        <div class="disrupt__bg" aria-hidden="true">
+          <div class="disrupt__grad-wrap">
+            <img src="../assets/images/grad.png" alt="" class="disrupt__grad" width="1920" height="1080" loading="lazy">
+          </div>
+        </div>
+
+        <!-- TIX — smaller, top-center, ABOVE the gradient -->
+        <div class="disrupt__tix" aria-hidden="true">
+          <img src="../assets/images/tixx.png" alt="" class="disrupt__tix-img" width="800" height="320" loading="lazy">
+        </div>
+
+        <!-- Left: headline + model (pulled near the leaf cards) -->
+        <div class="disrupt__left">
+          <h2 class="disrupt__tagline">
+            اكسر<br>المألوف<br>بجرأة.
+          </h2>
+          <img src="../assets/images/modelcrop.png" alt="عارضة في حملة إبداعية من TIX" class="disrupt__girl"
+            width="720" height="960" loading="lazy">
+        </div>
+
+        <!-- Right: leaf cards stack (only this track moves) -->
+        <div class="disrupt__right">
+          <div class="disrupt__viewport">
+            <div class="disrupt__track" data-disrupt-track>
+
+              <article class="disrupt__card">
+                <span class="disrupt__num">01</span>
+                <h3 class="disrupt__card-title" lang="en" dir="ltr">Marketing</h3>
+                <p class="disrupt__card-desc">نضع علامتك التجارية في المكان المناسب، باستراتيجيات تبني التواصل وتحقق نتائج قابلة للنمو.</p>
+                <ul class="disrupt__list">
+                  <li>/01 استراتيجية منصات التواصل</li>
+                  <li>/02 تخطيط الحملات</li>
+                  <li>/03 الإعلانات المدفوعة</li>
+                  <li>/04 استهداف الجمهور</li>
+                  <li>/05 تحليل الأداء</li>
+                </ul>
+              </article>
+
+              <article class="disrupt__card">
+                <span class="disrupt__num">02</span>
+                <h3 class="disrupt__card-title" lang="en" dir="ltr">Social Media Management</h3>
+                <p class="disrupt__card-desc">ندير حضورك كعلامة تجارية متكاملة، بمحتوى متناسق يلفت الانتباه ويشجع التفاعل.</p>
+                <ul class="disrupt__list">
+                  <li>/01 تخطيط المحتوى</li>
+                  <li>/02 النشر وجدولته</li>
+                  <li>/03 إدارة المجتمع</li>
+                  <li>/04 اتساق الهوية البصرية</li>
+                  <li>/05 قياس التفاعل</li>
+                </ul>
+              </article>
+
+              <article class="disrupt__card">
+                <span class="disrupt__num">03</span>
+                <h3 class="disrupt__card-title" lang="en" dir="ltr">Production</h3>
+                <p class="disrupt__card-desc">ننتج محتوى بصريًا عالي الجودة يلفت الانتباه ويثير المشاعر، من الفكرة حتى آخر لقطة.</p>
+                <ul class="disrupt__list">
+                  <li>/01 التصوير الفوتوغرافي</li>
+                  <li>/02 إنتاج الفيديو</li>
+                  <li>/03 الإضاءة والتنسيق</li>
+                  <li>/04 التوجيه الإبداعي</li>
+                  <li>/05 ما بعد الإنتاج</li>
+                </ul>
+              </article>
+
+              <article class="disrupt__card">
+                <span class="disrupt__num">04</span>
+                <h3 class="disrupt__card-title" lang="en" dir="ltr">Graphic Design</h3>
+                <p class="disrupt__card-desc">تصميمات واضحة ولافتة توصل رسالتك بتميز عبر مختلف القنوات الرقمية.</p>
+                <ul class="disrupt__list">
+                  <li>/01 أصول العلامة التجارية</li>
+                  <li>/02 تصاميم منصات التواصل</li>
+                  <li>/03 المطبوعات</li>
+                  <li>/04 تصميم الحملات</li>
+                  <li>/05 الأنظمة البصرية</li>
+                </ul>
+              </article>
+
+              <article class="disrupt__card">
+                <span class="disrupt__num">05</span>
+                <h3 class="disrupt__card-title" lang="en" dir="ltr">Web Development</h3>
+                <p class="disrupt__card-desc">نبني مواقع سريعة وقابلة للتوسع، تقدم علامتك التجارية في تجربة رقمية سلسة.</p>
+                <ul class="disrupt__list">
+                  <li>/01 تطوير الواجهات الأمامية</li>
+                  <li>/02 تصميم متجاوب</li>
+                  <li>/03 تحسين الأداء</li>
+                  <li>/04 تكامل CMS</li>
+                  <li>/05 الإطلاق والدعم</li>
+                </ul>
+              </article>
+
+              <article class="disrupt__card">
+                <span class="disrupt__num">06</span>
+                <h3 class="disrupt__card-title" lang="en" dir="ltr">UI / UX</h3>
+                <p class="disrupt__card-desc">تجارب رقمية سهلة وجذابة، مصممة لتحقيق أهدافك لا لمجرد أن تبدو جميلة.</p>
+                <ul class="disrupt__list">
+                  <li>/01 تصميم المواقع</li>
+                  <li>/02 تصميم واجهات التطبيقات</li>
+                  <li>/03 تصميم المتاجر الإلكترونية</li>
+                  <li>/04 النماذج الأولية</li>
+                  <li>/05 أنظمة التصميم</li>
+                </ul>
+              </article>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Outro tiles — rise after 06 to cover the model's legs -->
+        <div class="disrupt__outro" data-disrupt-outro aria-hidden="true">
+          <article class="disrupt__tile">
+            <img src="../assets/images/jw.jpg" alt="" class="disrupt__tile-img" width="400" height="520" loading="lazy">
+            <div class="disrupt__tile-copy">
+              <h3 class="disrupt__tile-title" lang="en" dir="ltr">Strategy</h3>
+              <p class="disrupt__tile-sub">تموضع يرفض أن يكون عاديًا.</p>
+            </div>
+          </article>
+          <article class="disrupt__tile">
+            <img src="../assets/images/fashion.png" alt="" class="disrupt__tile-img" width="400" height="520" loading="lazy">
+            <div class="disrupt__tile-copy">
+              <h3 class="disrupt__tile-title" lang="en" dir="ltr">Media Production</h3>
+              <p class="disrupt__tile-sub">مشاهد صُممت لتأسر الانتباه.</p>
+            </div>
+          </article>
+          <article class="disrupt__tile">
+            <img src="../assets/images/j2.png" alt="" class="disrupt__tile-img" width="400" height="520" loading="lazy">
+            <div class="disrupt__tile-copy">
+              <h3 class="disrupt__tile-title" lang="en" dir="ltr">Marketing</h3>
+              <p class="disrupt__tile-sub">حملات تفهم الثقافة وتحولها إلى تفاعل.</p>
+            </div>
+          </article>
+          <article class="disrupt__tile">
+            <img src="../assets/images/fashion1.png" alt="" class="disrupt__tile-img" width="400" height="520" loading="lazy">
+            <div class="disrupt__tile-copy">
+              <h3 class="disrupt__tile-title" lang="en" dir="ltr">Digital Presence</h3>
+              <p class="disrupt__tile-sub">واجهات بهوية لا تخطئها العين.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Soft black blur under the pin — hides legs / next section -->
+        <div class="disrupt__cloud" aria-hidden="true"></div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+       THEY / TRUSTED / US MARQUEE SECTION
+  ════════════════════════════════════════════ -->
+    <section class="trust-section" aria-labelledby="trust-heading">
+      <div class="trust-section__inner">
+        <div class="trust-section__ribbon trust-section__ribbon--light marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span class="marquee__item">TIX <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">توجيه إبداعي <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">استراتيجية العلامة التجارية <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">إنتاج إبداعي <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">تجارب رقمية <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">حملات فاخرة <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">أزياء راقية <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">هوية بصرية <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">ثقافة معاصرة <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">حركة وإيقاع <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">أنظمة العلامات التجارية <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item" lang="ar">هويات بصرية متكاملة <span class="marquee__sep">✦</span></span>
+          </div>
+        </div>
+
+        <div class="trust-section__ribbon trust-section__ribbon--crimson marquee marquee--reverse" aria-hidden="true">
+          <div class="marquee__track">
+            <span class="marquee__item">ZEN DIAMOND <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">KENZ GOLD <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">ALMASAT ELKHALIJ <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">GAWHARA <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">LUGANO <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">ZARA <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">H&amp;M <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">LOCATION CAFE <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">SWEET DOOR <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">MAAMOL <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">DR IDOL <span class="marquee__sep">✦</span></span>
+            <span class="marquee__item">FUNDIK <span class="marquee__sep">✦</span></span>
+          </div>
+        </div>
+
+        <h2 class="trust-section__headline" id="trust-heading" lang="en" dir="ltr">
+          <span class="trust-section__word trust-section__word--they" lang="en" dir="ltr">They</span>
+          <span class="trust-section__word trust-section__word--trusted" lang="en" dir="ltr">Trusted</span>
+          <span class="trust-section__word trust-section__word--us" lang="en" dir="ltr">Us</span>
+        </h2>
+
+        <div class="trust-section__cta">
+          <a href="../pages/work.html" class="btn btn--outline" lang="en" dir="ltr">See the work</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- INTERSECTION OBSERVER & SCRIPT LOGIC -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      
+      // Burger Navigation Toggle
+      const burgerBtn = document.getElementById('tixBurgerBtn');
+      const navLinks = document.getElementById('tixNavLinks');
+
+      if (burgerBtn && navLinks) {
+        burgerBtn.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+        });
+      }
+
+      // Intersection Observer Scroll Sequence
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      }, observerOptions);
+
+      const elementsToObserve = document.querySelectorAll(".observer-target");
+      elementsToObserve.forEach(el => observer.observe(el));
+
+    });
+  </script>
+
+  <!-- Scripts (defer for non-blocking) -->
+  <script src="../js/layout.js" defer></script>
+  <script src="../js/main.js" defer></script>
+</body>
+
+</html>
+
