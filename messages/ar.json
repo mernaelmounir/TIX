@@ -42,6 +42,8 @@
     "hero": "ماذا يوجد بالداخل",
     "studio": "الاستوديو؟",
     "calls": "أسئلة إبداعية نجيب عنها",
+    "callsIntro": "توجيه إبداعي واستراتيجية وإنتاج وأنظمة رقمية تصوغ علامات تجارية عصرية.",
+    "phoneAlt": "سماعة هاتف كلاسيكي معلّقة بسلك حلزوني",
     "gallery": "معرض صور الاستوديو", "creativity": "الإبداع", "callsWord": "ينادي", "we": "نحن", "answer": "نجيب.", "audienceTitle": "الجمهور والتأثير", "motionTitle": "الحركة والإنتاج", "visualTitle": "الأنظمة البصرية", "socialManagement": "إدارة وسائل التواصل الاجتماعي", "contentCreation": "صناعة المحتوى", "performanceMarketing": "التسويق القائم على الأداء", "mediaBuying": "شراء المساحات الإعلامية", "influencerMarketing": "التسويق عبر المؤثرين", "creativeCampaigns": "الحملات الإبداعية", "seo": "تحسين الظهور في محركات البحث", "marketAnalysis": "الاستراتيجية وتحليل السوق", "commercialProduction": "إنتاج الفيديوهات التجارية", "brandShoots": "جلسات تصوير العلامة", "productPhotography": "تصوير المنتجات", "motionGraphics": "الرسوم المتحركة", "videoEditing": "مونتاج الفيديو", "podcastProduction": "إنتاج البودكاست", "eventCoverage": "تغطية الفعاليات", "shortForm": "ريلز ومحتوى قصير", "graphicDesignService": "التصميم الجرافيكي", "uiDesign": "تصميم واجهات المستخدم", "packaging": "تصميم العبوات", "socialDesigns": "تصميمات وسائل التواصل", "presentation": "تصميم العروض التقديمية", "guidelines": "إرشادات العلامة", "creativeConcepts": "المفاهيم الإبداعية", "visualIdentity": "أنظمة الهوية البصرية", "audienceDescription": "أنظمة استراتيجية تضع العلامات في مكانها الصحيح، وتصنع التصور، وتحفّز التفاعل.", "motionDescription": "إنتاج بصري سينمائي مبني على السرد والحركة والتوجيه.", "visualDescription": "لغات تصميم وأصول إبداعية تبني هويات واضحة ودائمة."
   },
   "WorkPage": {

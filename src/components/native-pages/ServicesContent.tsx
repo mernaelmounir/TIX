@@ -56,7 +56,14 @@ export function ServicesContent() {
       <div className="svc-calls__container">
         
         <div className="svc-calls__button-wrap" data-reveal="fade">
-          <img src="../assets/images/button.webp" alt="Creative direction, strategy, production, and digital systems designed to shape modern brands." className="svc-calls__button-img" />
+          <div className="svc-calls__button-card">
+            <span className="svc-calls__button-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 4v15m-6-6 6 6 6-6" />
+              </svg>
+            </span>
+            <p className="svc-calls__button-copy" lang={locale} dir={direction}>{t('callsIntro')}</p>
+          </div>
         </div>
 
         
@@ -72,7 +79,7 @@ export function ServicesContent() {
           
           <div className="svc-calls__phone-stage" data-reveal="scale">
             <div className="svc-calls__phone-wrapper">
-              <img src="../assets/images/phone.webp" alt="Vintage phone receiver hanging by coiled cord" className="svc-calls__phone-img" />
+              <img src="../assets/images/phone.webp" alt={t('phoneAlt')} className="svc-calls__phone-img" />
             </div>
           </div>
 

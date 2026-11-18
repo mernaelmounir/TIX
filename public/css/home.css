@@ -3091,3 +3091,21 @@ html[lang="ar"] .trust-section .marquee__group[lang="en"] .marquee__item {
     height: 31%;
   }
 }
+
+/* Keep the Arabic Disrupt model and service card close in a centered RTL row. */
+@media (min-width: 901px) {
+  html[lang="ar"] .disrupt__sticky {
+    direction: rtl;
+    justify-content: center;
+    gap: 0;
+  }
+
+  html[lang="ar"] .disrupt__left,
+  html[lang="ar"] .disrupt__right {
+    margin-inline: 0 !important;
+  }
+
+  html[lang="ar"] .disrupt__girl {
+    left: -18%;
+  }
+}

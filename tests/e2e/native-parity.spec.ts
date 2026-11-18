@@ -183,6 +183,22 @@ test.describe('native route parity', () => {
       expect(layers.girlZ).toBeGreaterThan(layers.titleZ);
       await expect(title).toBeVisible();
       await expect(girl).toBeVisible();
+      if (viewport.width > 900) {
+        const layout = await section.evaluate((element) => {
+          const sticky = element.querySelector<HTMLElement>('.disrupt__sticky')!;
+          const girlRect = element.querySelector<HTMLElement>('.disrupt__girl')!.getBoundingClientRect();
+          const cardRect = element.querySelector<HTMLElement>('.disrupt__card')!.getBoundingClientRect();
+          return {
+            direction: getComputedStyle(sticky).direction,
+            girlCenter: girlRect.left + girlRect.width / 2,
+            cardCenter: cardRect.left + cardRect.width / 2,
+            gap: Math.max(0, cardRect.left - girlRect.right, girlRect.left - cardRect.right),
+          };
+        });
+        expect(layout.direction).toBe('rtl');
+        expect(layout.girlCenter).toBeGreaterThan(layout.cardCenter);
+        expect(layout.gap).toBeLessThanOrEqual(4);
+      }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     }
   });
@@ -602,6 +618,22 @@ test.describe('native route parity', () => {
     await expect(stage).toHaveClass(/is-open/);
   });
 
+  test('Arabic Services localizes the phone intro and removes the handset shadow', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/ar/services', { waitUntil: 'networkidle' });
+    const intro = page.locator('.svc-calls__button-copy');
+    const phone = page.locator('.svc-calls__phone-img');
+    await expect(intro).toHaveAttribute('lang', 'ar');
+    await expect(intro).toHaveAttribute('dir', 'rtl');
+    await expect(intro).toHaveText('توجيه إبداعي واستراتيجية وإنتاج وأنظمة رقمية تصوغ علامات تجارية عصرية.');
+    await expect(intro).not.toContainText('Creative direction');
+    await expect(phone).toHaveAttribute('alt', 'سماعة هاتف كلاسيكي معلّقة بسلك حلزوني');
+    await page.locator('#creativity-calls').scrollIntoViewIfNeeded();
+    await expect(page.locator('#creativity-calls')).toHaveClass(/is-visible/);
+    await expect(page.locator('.svc-calls__phone-stage')).toHaveClass(/is-visible/);
+    await expect(phone).toHaveCSS('filter', 'none');
+  });
+
 
   test('shared footer is present on non-contact public routes', async ({ page }) => {
     for (const route of ['/', '/ar', '/about', '/services', '/work']) {
@@ -609,6 +641,42 @@ test.describe('native route parity', () => {
       await expect(page.locator('.tix-section .cta-card')).toHaveCount(1);
       await expect(page.locator('.tix-footer')).toHaveCount(1);
       await expect(page.locator('.tix-footer')).toBeVisible();
+    }
+  });
+
+  test('Arabic Contact boy section stays centered across viewport sizes', async ({ page }) => {
+    for (const viewport of [
+      { width: 1920, height: 1080 },
+      { width: 1440, height: 900 },
+      { width: 390, height: 844 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await page.goto('/ar/contact', { waitUntil: 'networkidle' });
+      const footer = page.locator('[data-contact-footer]');
+      await footer.scrollIntoViewIfNeeded();
+      const centers = await footer.evaluate((element) => {
+        const center = (target: Element) => {
+          const rect = target.getBoundingClientRect();
+          return rect.left + rect.width / 2;
+        };
+        const inner = element.querySelector<HTMLElement>('.relative.mx-auto.flow-root')!;
+        const panel = element.querySelector<HTMLElement>('[data-contact-panel]')!;
+        const boy = element.querySelector<HTMLElement>('[data-contact-character]')!;
+        const headingRow = element.querySelector<HTMLElement>('.relative.z-20.mx-auto')!;
+        return {
+          viewport: window.innerWidth / 2,
+          inner: center(inner),
+          panel: center(panel),
+          boy: center(boy),
+          headingRow: center(headingRow),
+        };
+      });
+      expect(Math.abs(centers.inner - centers.viewport)).toBeLessThanOrEqual(2);
+      expect(Math.abs(centers.panel - centers.viewport)).toBeLessThanOrEqual(2);
+      expect(Math.abs(centers.boy - centers.viewport)).toBeLessThanOrEqual(2);
+      if (viewport.width > 640) {
+        expect(Math.abs(centers.headingRow - centers.viewport)).toBeLessThanOrEqual(2);
+      }
     }
   });
 
