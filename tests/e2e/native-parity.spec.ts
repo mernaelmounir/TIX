@@ -36,27 +36,23 @@ test.describe('native route parity', () => {
       const metrics = await section.evaluate((element) => {
         const sticky = element.querySelector<HTMLElement>('.disrupt__sticky')!;
         const logo = element.querySelector<HTMLElement>('.disrupt__tix')!.getBoundingClientRect();
-        const stage = sticky.getBoundingClientRect();
-        const card = element.querySelector<HTMLElement>('.disrupt__card')!;
-        const title = element.querySelector<HTMLElement>('.disrupt__tagline')!;
-        const girl = element.querySelector<HTMLElement>('.disrupt__girl')!;
-        const row = element.querySelector<HTMLElement>('.disrupt__list li')!;
-        const titleRule = element.querySelector<HTMLElement>('.disrupt__card-title')!;
-        const cardStyle = getComputedStyle(card);
-        return {
+          const stage = sticky.getBoundingClientRect();
+          const card = element.querySelector<HTMLElement>('.disrupt__card')!;
+          const title = element.querySelector<HTMLElement>('.disrupt__tagline')!;
+          const girl = element.querySelector<HTMLElement>('.disrupt__girl')!;
+          const row = element.querySelector<HTMLElement>('.disrupt__list li')!;
+          const titleRule = element.querySelector<HTMLElement>('.disrupt__card-title')!;
+          return {
           logoCenterDelta: Math.abs((logo.left + logo.width / 2) - (stage.left + stage.width / 2)),
           logoWidth: logo.width,
           cardHeight: card.getBoundingClientRect().height,
-          cardRadius: {
-            topLeft: cardStyle.borderTopLeftRadius,
-            topRight: cardStyle.borderTopRightRadius,
-            bottomRight: cardStyle.borderBottomRightRadius,
-            bottomLeft: cardStyle.borderBottomLeftRadius,
-          },
+          cardBackground: getComputedStyle(card).backgroundColor,
+          cardColor: getComputedStyle(card).color,
+          cardBorderWidth: getComputedStyle(card).borderTopWidth,
+          cardTitleColor: getComputedStyle(titleRule).color,
           titleZ: Number.parseInt(getComputedStyle(title).zIndex || '0', 10),
           girlZ: Number.parseInt(getComputedStyle(girl).zIndex || '0', 10),
           girlBlendMode: getComputedStyle(girl).mixBlendMode,
-          girlBottom: getComputedStyle(girl).bottom,
           rowBackground: getComputedStyle(row).backgroundColor,
           rowBottomBorder: getComputedStyle(row).borderBottomStyle,
           titleBottomBorder: getComputedStyle(titleRule).borderBottomStyle,
@@ -65,15 +61,16 @@ test.describe('native route parity', () => {
 
       await expect(firstCard).toBeVisible();
       expect(metrics.logoCenterDelta).toBeLessThan(2);
-      expect(metrics.logoWidth).toBeGreaterThan(viewport.width <= 900 ? 150 : 250);
-      expect(metrics.cardHeight).toBeGreaterThan(viewport.width <= 900 ? 480 : 520);
-      expect(metrics.cardRadius.topLeft).toBe('0px');
-      expect(metrics.cardRadius.bottomRight).toBe('0px');
-      expect(metrics.cardRadius.topRight).not.toBe('0px');
-      expect(metrics.cardRadius.bottomLeft).not.toBe('0px');
+      expect(metrics.logoWidth).toBeGreaterThan(viewport.width <= 900 ? 80 : 200);
+      expect(metrics.cardHeight).toBeGreaterThan(180);
+      expect(metrics.cardBackground).toBe('rgb(255, 255, 255)');
+      expect(metrics.cardColor).toBe('rgb(17, 17, 17)');
+      expect(metrics.cardTitleColor).toBe('rgb(97, 0, 0)');
+      if (viewport.width <= 900) expect(metrics.cardBorderWidth).toBe('6px');
+      expect(await section.locator('.disrupt__card').count()).toBe(6);
+      expect(await section.locator('.disrupt__tile').count()).toBe(4);
       expect(metrics.titleZ).toBeLessThan(metrics.girlZ);
-      expect(metrics.girlBlendMode).toBe('normal');
-      expect(metrics.girlBottom).not.toBe('0px');
+      expect(metrics.girlBlendMode).toBe(viewport.width <= 900 ? 'normal' : 'lighten');
       expect(metrics.rowBackground).toBe('rgba(0, 0, 0, 0)');
       expect(metrics.rowBottomBorder).toBe('solid');
       expect(metrics.titleBottomBorder).toBe('solid');
@@ -111,60 +108,84 @@ test.describe('native route parity', () => {
     expect(animations).toEqual(['marquee', 'marquee']);
   });
 
-  test('HOME ZEN feature keeps the three-photo collage on mobile and desktop', async ({ page }) => {
+  test('HOME brand showcase displays five three-photo entries with integrated English names', async ({ page }) => {
+    const expectedNames = ['ZEN DIAMOND', 'AMR DIAB / TAMER HOSNY', 'KENZ', 'H&M', 'ALMASAT ALKHALIJ'];
     for (const viewport of [{ width: 1440, height: 900 }, { width: 375, height: 812 }]) {
       await page.setViewportSize(viewport);
       await page.goto('/ar', { waitUntil: 'networkidle' });
       const section = page.locator('[data-home-brands]');
       await section.scrollIntoViewIfNeeded();
-      await expect(section.getByRole('heading', { name: 'ZEN DIAMOND' })).toBeVisible();
-      await expect(section.locator('.home-brands__heading')).toHaveAttribute('lang', 'en');
-      await expect(section.locator('.home-brands__heading')).toHaveAttribute('dir', 'ltr');
-      await expect(section.locator('[data-brand-photo]')).toHaveCount(3);
-      await expect(section.locator('img[alt*="ZEN Diamond"]')).toHaveCount(3);
-
-      const layout = await section.evaluate((element) => {
-        const collage = element.querySelector<HTMLElement>('.home-brands__collage')!.getBoundingClientRect();
+      const slides = section.locator('[data-brand-slide]');
+      await expect(slides).toHaveCount(5);
+      expect(await slides.locator('.home-brands__brand-name').allTextContents()).toEqual(expectedNames);
+      for (const slide of await slides.all()) {
+        await expect(slide).toHaveAttribute('lang', 'en');
+        await expect(slide).toHaveAttribute('dir', 'ltr');
+        await expect(slide.locator('.home-brands__brand-name')).toBeVisible();
+        await expect(slide.locator('[data-brand-photo]')).toHaveCount(3);
+        const srcs = await slide.locator('img').evaluateAll((images) => images.map((image) => image.getAttribute('src')));
+        expect(new Set(srcs).size).toBe(3);
+      }
+      await section.locator('img').evaluateAll((images) => {
+        (images as HTMLImageElement[]).forEach((image) => { image.loading = 'eager'; });
+      });
+      await expect.poll(() => section.locator('img').evaluateAll((images) =>
+        (images as HTMLImageElement[]).every((image) => image.complete && image.naturalWidth > 0),
+      )).toBe(true);
+      const firstCollage = slides.first().locator('.home-brands__collage');
+      const layout = await firstCollage.evaluate((element) => {
+        const collage = element.getBoundingClientRect();
         const rect = (position: string) => {
           const box = element.querySelector<HTMLElement>(`[data-brand-photo="${position}"]`)!.getBoundingClientRect();
           return { x: box.left - collage.left, y: box.top - collage.top, width: box.width, height: box.height };
         };
-        return {
-          large: rect('large'),
-          upperRight: rect('upper-right'),
-          lowerLeft: rect('lower-left'),
-        };
+        return { large: rect('large'), upper: rect('upper'), lower: rect('lower') };
       });
-      expect(layout.large.width).toBeGreaterThan(layout.upperRight.width);
-      expect(layout.upperRight.x).toBeGreaterThan(layout.large.x);
-      expect(layout.upperRight.y).toBeLessThan(layout.large.y);
-      expect(layout.lowerLeft.x).toBeLessThan(layout.large.x);
-      expect(layout.lowerLeft.y).toBeGreaterThan(layout.large.y);
-      const loaded = await section.locator('img').evaluateAll((images) =>
-        (images as HTMLImageElement[]).every((image) => image.complete && image.naturalWidth > 0),
-      );
-      expect(loaded).toBe(true);
+      expect(layout.large.width).toBeGreaterThan(layout.upper.width);
+      expect(layout.upper.x).toBeGreaterThan(layout.large.x);
+      expect(layout.upper.y).toBeLessThan(layout.large.y);
+      expect(layout.lower.x).toBeLessThan(layout.large.x);
+      expect(layout.lower.y).toBeGreaterThan(layout.large.y);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     }
   });
 
-  test('HOME ZEN collage responds to vertical scroll with horizontal parallax', async ({ page }) => {
+  test('HOME brand sequence follows vertical scroll on desktop and stays swipeable on mobile', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('/ar', { waitUntil: 'networkidle' });
     const section = page.locator('[data-home-brands]');
-    const upperRight = section.locator('[data-brand-photo="upper-right"]');
-    const scrollRange = await section.evaluate((element) => {
-      const rect = element.getBoundingClientRect();
-      const top = rect.top + window.scrollY;
+    const track = section.locator('[data-home-brands-track]');
+    await section.scrollIntoViewIfNeeded();
+    await expect.poll(() => section.getAttribute('data-scroll-driven')).toBe('true');
+    const top = await section.evaluate((element) => element.getBoundingClientRect().top + window.scrollY);
+    await page.evaluate((scrollTop) => window.scrollTo({ top: scrollTop + 5, behavior: 'instant' }), top);
+    await page.waitForTimeout(120);
+    const startTransform = await track.evaluate((element) => getComputedStyle(element).transform);
+    await page.evaluate((scrollTop) => window.scrollTo({ top: scrollTop + 900, behavior: 'instant' }), top);
+    await expect.poll(() => track.evaluate((element) => getComputedStyle(element).transform)).not.toBe(startTransform);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto('/ar', { waitUntil: 'networkidle' });
+    const mobileSection = page.locator('[data-home-brands]');
+    const viewport = mobileSection.locator('[data-home-brands-viewport]');
+    const scrollHint = mobileSection.locator('.home-brands__scroll-hint');
+    await mobileSection.scrollIntoViewIfNeeded();
+    await expect(mobileSection).not.toHaveAttribute('data-scroll-driven');
+    await expect(scrollHint).toBeVisible();
+    const hintPosition = await mobileSection.evaluate((element) => {
+      const hint = element.querySelector<HTMLElement>('.home-brands__scroll-hint')!;
+      const gallery = element.querySelector<HTMLElement>('[data-home-brands-viewport]')!;
       return {
-        start: top - window.innerHeight * 0.9 + 10,
-        end: top + rect.height * 0.5 - window.innerHeight * 0.48 - 10,
+        precedesGallery: Boolean(hint.compareDocumentPosition(gallery) & Node.DOCUMENT_POSITION_FOLLOWING),
+        hintBottom: hint.getBoundingClientRect().bottom,
+        galleryTop: gallery.getBoundingClientRect().top,
       };
     });
-    await page.evaluate((top) => window.scrollTo({ top, behavior: 'instant' }), scrollRange.start);
-    const startTransform = await upperRight.evaluate((element) => getComputedStyle(element).transform);
-    await page.evaluate((top) => window.scrollTo({ top, behavior: 'instant' }), scrollRange.end);
-    await expect.poll(() => upperRight.evaluate((element) => getComputedStyle(element).transform)).not.toBe(startTransform);
+    expect(hintPosition.precedesGallery).toBe(true);
+    expect(hintPosition.hintBottom).toBeLessThanOrEqual(hintPosition.galleryTop + 1);
+    await expect.poll(() => viewport.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(true);
+    await viewport.evaluate((element) => element.scrollTo({ left: element.scrollWidth, behavior: 'instant' }));
+    await expect.poll(() => viewport.evaluate((element) => element.scrollLeft)).toBeGreaterThan(0);
   });
 
   test('Arabic HOME keeps the model in front of the correctly-directed Disrupt headline', async ({ page }) => {
@@ -183,6 +204,22 @@ test.describe('native route parity', () => {
       expect(layers.girlZ).toBeGreaterThan(layers.titleZ);
       await expect(title).toBeVisible();
       await expect(girl).toBeVisible();
+      if (viewport.width > 900) {
+        const layout = await section.evaluate((element) => {
+          const sticky = element.querySelector<HTMLElement>('.disrupt__sticky')!;
+          const girlRect = element.querySelector<HTMLElement>('.disrupt__girl')!.getBoundingClientRect();
+          const cardRect = element.querySelector<HTMLElement>('.disrupt__card')!.getBoundingClientRect();
+          return {
+            direction: getComputedStyle(sticky).direction,
+            girlCenter: girlRect.left + girlRect.width / 2,
+            cardCenter: cardRect.left + cardRect.width / 2,
+            gap: Math.max(0, cardRect.left - girlRect.right, girlRect.left - cardRect.right),
+          };
+        });
+        expect(layout.direction).toBe('rtl');
+        expect(layout.girlCenter).toBeGreaterThan(layout.cardCenter);
+        expect(layout.gap).toBeLessThanOrEqual(24);
+      }
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     }
   });
@@ -334,6 +371,51 @@ test.describe('native route parity', () => {
     expect(cards.some((card) => card.opacity > 0.85)).toBeTruthy();
   });
 
+  test('Studio six-word sequence is complete and The Signal paragraph moves left in Arabic', async ({ page }) => {
+    const versions = [
+      {
+        route: '/about', direction: 'ltr', animation: 'brandWordRollSix',
+        stable: 'For brands that need',
+        words: ['ATTENTION', 'IMPACT', 'PRESENCE', 'MOVEMENT', 'DIRECTION', 'CULTURE'],
+      },
+      {
+        route: '/ar/about', direction: 'rtl', animation: 'brandWordRollSixArabic',
+        stable: 'للعلامات التي تحتاج إلى',
+        words: ['الاهتمام', 'الأثر', 'الحضور', 'الحركة', 'التوجّه', 'الثقافة'],
+      },
+    ] as const;
+    const colors = ['word-red', 'word-beige', 'word-red', 'word-beige', 'word-beige', 'word-red', 'word-red'];
+    for (const version of versions) {
+      for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
+        await page.setViewportSize(viewport);
+        await page.goto(version.route, { waitUntil: 'networkidle' });
+        const stable = page.locator('.brand-focus__stable');
+        const wordWindow = page.locator('.brand-focus__window');
+        const track = page.locator('.brand-focus__track');
+        await expect(stable).toHaveText(version.stable);
+        await expect(stable).toHaveAttribute('dir', version.direction);
+        await expect(wordWindow).toHaveAttribute('dir', version.direction);
+        const wordSpans = track.locator(':scope > span');
+        expect(await wordSpans.allTextContents()).toEqual([...version.words, version.words[0]]);
+        expect(await wordSpans.evaluateAll((spans) => spans.map((span) => span.className))).toEqual(colors);
+        await expect.poll(() => track.evaluate((element) => getComputedStyle(element).animationName)).toBe(version.animation);
+        const signal = page.locator('#signal-intro');
+        await signal.scrollIntoViewIfNeeded();
+        await expect(signal.locator('.signal-intro__right .signal-intro__p').first()).toBeVisible();
+        if (version.direction === 'rtl' && viewport.width > 900) {
+          const columns = await signal.evaluate((element) => {
+            const center = (selector: string) => {
+              const rect = element.querySelector<HTMLElement>(selector)!.getBoundingClientRect();
+              return rect.left + rect.width / 2;
+            };
+            return { paragraph: center('.signal-intro__right'), heading: center('.signal-intro__left') };
+          });
+          expect(columns.paragraph).toBeLessThan(columns.heading);
+        }
+      }
+    }
+  });
+
   test('Studio touchpoints preserve the portrait reference composition', async ({ page }) => {
     const viewports = [
       { width: 1920, height: 1080 },
@@ -367,8 +449,9 @@ test.describe('native route parity', () => {
 
       const stageBox = await stage.boundingBox();
       expect(stageBox).not.toBeNull();
-      expect(stageBox!.width).toBeGreaterThanOrEqual(viewport.width - 2);
-      expect(Math.abs((stageBox!.width / stageBox!.height) - (1852 / 2067))).toBeLessThan(0.01);
+      expect(stageBox!.width).toBeGreaterThanOrEqual(Math.min(viewport.width, 1480) - 2);
+      expect(stageBox!.width).toBeLessThanOrEqual(viewport.width + 1);
+      expect(Math.abs((stageBox!.width / stageBox!.height) - (3704 / 4994))).toBeLessThan(0.01);
       expect(Math.abs((await section.boundingBox())!.height - stageBox!.height)).toBeLessThan(3);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 
@@ -415,7 +498,7 @@ test.describe('native route parity', () => {
       expect(metrics.loaded).toBe(true);
       expect(metrics.filters.every((filter) => filter.includes('drop-shadow') && !filter.includes('blur'))).toBe(true);
       const maxCardRatio = Math.max(...metrics.cardWidths) / metrics.stageWidth;
-      expect(maxCardRatio).toBeLessThan(viewport.width <= 700 ? 0.4 : 0.3);
+      expect(maxCardRatio).toBeLessThan(viewport.width <= 900 ? 0.4 : 0.3);
       expect(metrics.documentWidth).toBeLessThanOrEqual(viewport.width);
     }
   });
@@ -590,8 +673,21 @@ test.describe('native route parity', () => {
     await expect(heroHeading).toHaveAttribute('dir', 'rtl');
     await expect(studioHeading).toHaveAttribute('lang', 'ar');
     await expect(studioHeading).toHaveAttribute('dir', 'rtl');
-    await expect.poll(() => heroHeading.evaluate((element) => getComputedStyle(element.parentElement!).textAlign)).toBe('left');
-    await expect.poll(() => studioHeading.evaluate((element) => getComputedStyle(element.parentElement!).textAlign)).toBe('right');
+    await expect.poll(() => heroHeading.evaluate((element) => getComputedStyle(element.parentElement!).textAlign)).toBe('right');
+    await expect.poll(() => studioHeading.evaluate((element) => getComputedStyle(element.parentElement!).textAlign)).toBe('left');
+    const layout = await page.evaluate(() => {
+      const center = (selector: string) => {
+        const rect = document.querySelector<HTMLElement>(selector)!.getBoundingClientRect();
+        return rect.left + rect.width / 2;
+      };
+      return {
+        content: center('.svchero__title-wrap--top'),
+        stage: center('#svchero-stage'),
+        studio: center('.svchero__title-wrap--bottom'),
+      };
+    });
+    expect(layout.content).toBeGreaterThan(layout.stage);
+    expect(layout.studio).toBeLessThan(layout.stage);
     await expect(stage).toHaveClass(/is-open/);
 
     await page.locator('#main-nav a[href$="/about"]').first().click();
@@ -602,6 +698,22 @@ test.describe('native route parity', () => {
     await expect(stage).toHaveClass(/is-open/);
   });
 
+  test('Arabic Services localizes the phone intro and removes the handset shadow', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/ar/services', { waitUntil: 'networkidle' });
+    const intro = page.locator('.svc-calls__button-copy');
+    const phone = page.locator('.svc-calls__phone-img');
+    await expect(intro).toHaveAttribute('lang', 'ar');
+    await expect(intro).toHaveAttribute('dir', 'rtl');
+    await expect(intro).toHaveText('توجيه إبداعي واستراتيجية وإنتاج وأنظمة رقمية تصوغ علامات تجارية عصرية.');
+    await expect(intro).not.toContainText('Creative direction');
+    await expect(phone).toHaveAttribute('alt', 'سماعة هاتف كلاسيكي معلّقة بسلك حلزوني');
+    await page.locator('#creativity-calls').scrollIntoViewIfNeeded();
+    await expect(page.locator('#creativity-calls')).toHaveClass(/is-visible/);
+    await expect(page.locator('.svc-calls__phone-stage')).toHaveClass(/is-visible/);
+    await expect(phone).toHaveCSS('filter', 'none');
+  });
+
 
   test('shared footer is present on non-contact public routes', async ({ page }) => {
     for (const route of ['/', '/ar', '/about', '/services', '/work']) {
@@ -609,6 +721,42 @@ test.describe('native route parity', () => {
       await expect(page.locator('.tix-section .cta-card')).toHaveCount(1);
       await expect(page.locator('.tix-footer')).toHaveCount(1);
       await expect(page.locator('.tix-footer')).toBeVisible();
+    }
+  });
+
+  test('Arabic Contact boy section stays centered across viewport sizes', async ({ page }) => {
+    for (const viewport of [
+      { width: 1920, height: 1080 },
+      { width: 1440, height: 900 },
+      { width: 390, height: 844 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await page.goto('/ar/contact', { waitUntil: 'networkidle' });
+      const footer = page.locator('[data-contact-footer]');
+      await footer.scrollIntoViewIfNeeded();
+      const centers = await footer.evaluate((element) => {
+        const center = (target: Element) => {
+          const rect = target.getBoundingClientRect();
+          return rect.left + rect.width / 2;
+        };
+        const inner = element.querySelector<HTMLElement>('.contact-footer__inner')!;
+        const panel = element.querySelector<HTMLElement>('[data-contact-panel]')!;
+        const boy = element.querySelector<HTMLElement>('[data-contact-character]')!;
+        const headingRow = element.querySelector<HTMLElement>('.contact-footer__headlines')!;
+        return {
+          viewport: window.innerWidth / 2,
+          inner: center(inner),
+          panel: center(panel),
+          boy: center(boy),
+          headingRow: center(headingRow),
+        };
+      });
+      expect(Math.abs(centers.inner - centers.viewport)).toBeLessThanOrEqual(2);
+      expect(Math.abs(centers.panel - centers.viewport)).toBeLessThanOrEqual(2);
+      expect(Math.abs(centers.boy - centers.viewport)).toBeLessThanOrEqual(2);
+      if (viewport.width > 640) {
+        expect(Math.abs(centers.headingRow - centers.viewport)).toBeLessThanOrEqual(2);
+      }
     }
   });
 
@@ -622,6 +770,13 @@ test.describe('native route parity', () => {
       { width: 375, height: 812 },
     ];
     await page.goto('/contact', { waitUntil: 'networkidle' });
+    await expect(page.locator('#contact-form-heading')).toHaveText('What do you want the world to feel?');
+    await expect(page.locator('.contact-copy__eyebrow')).toHaveText("LET'S GET IN TOUCH");
+    await expect(page.locator('.contact-copy__service')).toHaveText('Strategy. Production. Digital. Visual.');
+    await expect(page.locator('.contact-copy__body')).toHaveText("Tell us what you're building, what you're imagining, what your brand is missing.");
+    await expect(page.locator('textarea[name="building"]')).toBeVisible();
+    const footerCopy = await page.locator('[data-contact-footer] .contact-footer__headlines').textContent();
+    expect((footerCopy || '').replace(/\s+/g, ' ').trim()).toBe("Let's make something impossible to ignore.");
     for (const viewport of viewports) {
       await page.setViewportSize(viewport);
       await expect(page.locator('#main-content > section')).toHaveCount(2);
@@ -635,8 +790,7 @@ test.describe('native route parity', () => {
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
       await expect(formCard.locator('input[name="name"]')).toBeVisible();
       await expect(formCard.locator('input[name="email"]')).toBeVisible();
-      await expect(formCard.locator('input[name="building"]')).toBeVisible();
-      await expect(formCard.locator('textarea[name="help"]')).toBeVisible();
+      await expect(formCard.locator('textarea[name="building"]')).toBeVisible();
       await expect(page.locator('[data-contact-footer]')).toBeVisible();
       await expect(page.locator('[data-contact-footer] [data-contact-character]')).toBeVisible();
       await expect(page.locator('[data-contact-footer] [aria-label^="TIX on "]')).toHaveCount(5);
@@ -682,15 +836,13 @@ test.describe('native route parity', () => {
         name: 'Test Sender',
         email: 'sender@example.com',
         building: 'A new campaign',
-        help: 'We are planning a launch this quarter.',
       });
       await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true }) });
     });
     await page.goto('/contact', { waitUntil: 'networkidle' });
     await page.locator('input[name="name"]').fill('Test Sender');
     await page.locator('input[name="email"]').fill('sender@example.com');
-    await page.locator('input[name="building"]').fill('A new campaign');
-    await page.locator('textarea[name="help"]').fill('We are planning a launch this quarter.');
+    await page.locator('textarea[name="building"]').fill('A new campaign');
     await page.locator('.form-submit').click();
     await expect(page.locator('.form-status')).toHaveText('Message sent. We will be in touch soon.');
   });
@@ -702,7 +854,6 @@ test.describe('native route parity', () => {
         name: 'مرسل للاختبار',
         email: 'sender@example.com',
         building: 'حملة جديدة',
-        help: 'نخطط لإطلاق هذا الربع.',
       });
       await route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ok: true }) });
     });
@@ -710,16 +861,17 @@ test.describe('native route parity', () => {
     await page.goto('/ar/contact', { waitUntil: 'networkidle' });
     await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
     await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+    await expect(page.locator('#contact-form-heading')).toHaveText('ما الشعور الذي تريد أن يختبره العالم؟');
+    await expect(page.locator('.contact-copy__service')).toHaveText('استراتيجية. إنتاج. رقمي. بصري.');
+    await expect(page.locator('.contact-copy__body')).toHaveText('أخبرنا بما تعمل عليه، وما تتخيله، وما ينقص علامتك التجارية.');
     const formCard = page.locator('.contact-single-section .contact-form');
     await expect(formCard).toBeVisible();
     await expect(formCard.locator('input[name="name"]')).toBeVisible();
     await expect(formCard.locator('input[name="email"]')).toBeVisible();
-    await expect(formCard.locator('input[name="building"]')).toBeVisible();
-    await expect(formCard.locator('textarea[name="help"]')).toBeVisible();
+    await expect(formCard.locator('textarea[name="building"]')).toBeVisible();
     await formCard.locator('input[name="name"]').fill('مرسل للاختبار');
     await formCard.locator('input[name="email"]').fill('sender@example.com');
-    await formCard.locator('input[name="building"]').fill('حملة جديدة');
-    await formCard.locator('textarea[name="help"]').fill('نخطط لإطلاق هذا الربع.');
+    await formCard.locator('textarea[name="building"]').fill('حملة جديدة');
     await formCard.locator('.form-submit').click();
     await expect(formCard.locator('.form-status')).toHaveText('تم إرسال رسالتك. سنتواصل معك قريباً.');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);

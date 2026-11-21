@@ -10,7 +10,7 @@ describe('contact API', () => {
   it('rejects invalid payloads before provider delivery', async () => {
     const response = await POST(new Request('http://localhost/api/contact', {
       method: 'POST',
-      body: JSON.stringify({ name: 'A', email: 'invalid', help: 'short' }),
+      body: JSON.stringify({ name: 'A', email: 'invalid', building: '' }),
       headers: { 'content-type': 'application/json' },
     }));
     expect(response.status).toBe(400);

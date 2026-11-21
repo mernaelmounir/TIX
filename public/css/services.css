@@ -217,15 +217,53 @@
   align-items: center;
 }
 
-.svc-calls__button-img {
+.svc-calls__button-card {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.9))
-    drop-shadow(0 0 24px rgba(160, 0, 0, 0.25));
-  user-select: none;
-  -webkit-user-drag: none;
+  min-height: clamp(8.25rem, 12vw, 11.75rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem clamp(1.25rem, 7vw, 6rem) 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #170304 0%, #3b0609 52%, #65070b 100%);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.svc-calls__button-arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: clamp(4.25rem, 7vw, 5.75rem);
+  height: clamp(2.8rem, 5vw, 4.25rem);
+  display: grid;
+  place-items: center;
+  transform: translate(-50%, -18%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #a40810, #76050b);
+  box-shadow: 0 8px 24px rgba(100, 0, 8, 0.36);
+}
+
+.svc-calls__button-arrow svg {
+  width: 2rem;
+  height: 2rem;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc-calls__button-copy {
+  max-width: 64ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-editorial, var(--font-display)), sans-serif;
+  font-size: clamp(1rem, 2vw, 1.65rem);
+  font-weight: 300;
+  line-height: 1.4;
+  text-align: center;
 }
 
 /* Centered 3-Column Content Grid: Left Text, Center Hanging Phone, Right Text */
@@ -319,8 +357,7 @@
   display: block;
   object-fit: contain;
   object-position: top center;
-  filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.95))
-    drop-shadow(0 0 28px rgba(139, 0, 0, 0.3));
+  filter: none;
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -475,6 +512,22 @@
   .svc-calls__phone-stage {
     height: 270px;
     width: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .svchero__basket-img,
+  .svc-calls__aura,
+  .folder-card__media-img--chess,
+  .folder-card__media-img--camera,
+  .folder-card__media-img--megaphone {
+    animation: none;
+  }
+
+  .svc-calls.is-visible .svc-calls__phone-wrapper,
+  .svc-calls__phone-stage.is-visible .svc-calls__phone-wrapper {
+    animation: none;
+    opacity: 1;
   }
 }
 
@@ -811,6 +864,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .gl-18__track { animation: none; }
+
+  .svc-calls__phone-wrapper {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ── RESPONSIVE FOLDERS ──────────────────────────────────── */
@@ -889,5 +948,157 @@ html[lang="ar"] .svchero__main-text {
   .svchero__main-text,
   .svchero__main-text--right {
     text-align: center;
+  }
+}
+
+
+/* TIX Master Revision: mirrored Services hero and calm, readable phone composition. */
+@media (min-width: 901px) {
+  html[lang="ar"] .svchero__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(50vw, 720px)) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: center;
+    column-gap: clamp(.75rem, 2vw, 2rem);
+    direction: ltr;
+    width: min(100%, 1480px);
+    margin-inline: auto;
+  }
+
+  html[lang="ar"] .svchero__title-wrap--top {
+    grid-column: 3;
+    grid-row: 1;
+    align-self: center;
+    max-width: none;
+    margin: 0;
+    text-align: right;
+  }
+
+  html[lang="ar"] .svchero__stage {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin: 0;
+    direction: ltr;
+  }
+
+  html[lang="ar"] .svchero__title-wrap--bottom {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    max-width: none;
+    margin: 0;
+    text-align: left;
+  }
+
+  html[lang="ar"] .svchero__title-wrap--top .svchero__main-text { text-align: right; }
+  html[lang="ar"] .svchero__title-wrap--bottom .svchero__main-text { text-align: left; }
+  html[lang="ar"] .svchero__main-text { font-size: clamp(2rem, 4.2vw, 4.6rem); line-height: 1.3; }
+}
+
+html[lang="ar"] .svchero__title-wrap,
+html[lang="ar"] .svchero__main-text {
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 900px) {
+  html[lang="ar"] .svchero__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  html[lang="ar"] .svchero__title-wrap--top {
+    order: 0;
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  html[lang="ar"] .svchero__stage { order: 1; }
+
+  html[lang="ar"] .svchero__title-wrap--bottom {
+    order: 2;
+    align-self: flex-start;
+    text-align: left;
+  }
+
+  html[lang="ar"] .svchero__title-wrap--top .svchero__main-text { text-align: right; }
+  html[lang="ar"] .svchero__title-wrap--bottom .svchero__main-text { text-align: left; }
+
+  .svc-calls__button-wrap { width: min(90%, 680px); max-width: 90%; }
+  .svc-calls__button-card {
+    min-height: clamp(5.6rem, 20vw, 7.4rem);
+    padding: 1.9rem 1rem .85rem;
+    border-radius: 34px;
+  }
+  .svc-calls__button-copy { max-width: 44ch; font-size: clamp(.78rem, 2.8vw, 1rem); line-height: 1.42; }
+  .svc-calls__button-arrow { width: 3.6rem; height: 2.45rem; }
+  .svc-calls__button-arrow svg { width: 1.55rem; height: 1.55rem; }
+
+  .svc-calls__stage-grid {
+    grid-template-columns: minmax(0, 1fr) clamp(84px, 23vw, 140px) minmax(0, 1fr);
+    gap: .2rem;
+    width: 100%;
+    max-width: 820px;
+    margin: -.55rem auto 0;
+    padding-inline: .4rem;
+  }
+  .svc-calls__side { min-width: 0; position: relative; z-index: 4; }
+  .svc-calls__side--left { align-items: flex-end; text-align: right; }
+  .svc-calls__side--right { align-items: flex-start; text-align: left; }
+  .svc-calls__heading {
+    max-width: 100%;
+    font-size: clamp(1.15rem, 5.25vw, 2.25rem);
+    line-height: .98;
+    letter-spacing: -.035em;
+    white-space: normal;
+    overflow-wrap: normal;
+    text-wrap: balance;
+  }
+  .svc-calls__phone-stage {
+    z-index: 6;
+    width: clamp(84px, 23vw, 140px);
+    height: clamp(320px, 57svh, 500px);
+  }
+  .svc-calls__phone-wrapper {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .svc-calls.is-visible .svc-calls__phone-wrapper,
+  .svc-calls__phone-stage.is-visible .svc-calls__phone-wrapper {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+
+  html[lang="ar"] .svc-calls__stage-grid { direction: rtl; }
+  html[lang="ar"] .svc-calls__side--left { align-items: flex-start; text-align: right; }
+  html[lang="ar"] .svc-calls__side--right { align-items: flex-end; text-align: right; }
+  html[lang="ar"] .svc-calls__heading,
+  html[lang="ar"] .svc-calls__button-copy { font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif; letter-spacing: 0; }
+}
+
+@media (max-width: 480px) {
+  .svchero__title-wrap--top,
+  .svchero__title-wrap--bottom { width: 100%; max-width: none; }
+  .svchero__main-text,
+  .svchero__main-text--right { font-size: clamp(1.35rem, 6.4vw, 2rem); line-height: 1.1; white-space: normal; }
+  .svc-calls__stage-grid { grid-template-columns: minmax(0, 1fr) clamp(88px, 24vw, 112px) minmax(0, 1fr); }
+  .svc-calls__phone-stage { width: clamp(88px, 24vw, 112px); height: clamp(300px, 54svh, 430px); }
+  .svc-calls__heading { font-size: clamp(1.12rem, 5.4vw, 1.65rem); }
+  html[lang="ar"] .svc-calls__heading { font-size: clamp(1.12rem, 5.2vw, 1.65rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .svc-calls__phone-wrapper,
+  .svc-calls.is-visible .svc-calls__phone-wrapper,
+  .svc-calls__phone-stage.is-visible .svc-calls__phone-wrapper {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }

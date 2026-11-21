@@ -27,16 +27,16 @@ export function ServicesContent() {
         
         <div className="svchero__stage" id="svchero-stage" data-reveal="scale">
           <div className="svchero__basket-wrap">
-            <img src="../assets/images/basket-clean.webp" alt="What's inside the studio - wire basket containing services: Marketing, Graphic Design, Production, Website Development, Photography, UI/UX, Social Media Management" className="svchero__basket-img" />
+            <img src="/assets/images/basket-clean.webp" alt="What's inside the studio - wire basket containing services: Marketing, Graphic Design, Production, Website Development, Photography, UI/UX, Social Media Management" className="svchero__basket-img" />
 
             
             <div className="svchero__chevron-item svchero__chevron-item--left" aria-hidden="true">
-              <img src="../assets/images/chevron-left-final.webp" alt="" className="svchero__chevron-img" />
+              <img src="/assets/images/chevron-left-final.webp" alt="" className="svchero__chevron-img" />
             </div>
 
             
             <div className="svchero__chevron-item svchero__chevron-item--right" aria-hidden="true">
-              <img src="../assets/images/chevron-right-final.webp" alt="" className="svchero__chevron-img" />
+              <img src="/assets/images/chevron-right-final.webp" alt="" className="svchero__chevron-img" />
             </div>
           </div>
         </div>
@@ -56,7 +56,14 @@ export function ServicesContent() {
       <div className="svc-calls__container">
         
         <div className="svc-calls__button-wrap" data-reveal="fade">
-          <img src="../assets/images/button.webp" alt="Creative direction, strategy, production, and digital systems designed to shape modern brands." className="svc-calls__button-img" />
+          <div className="svc-calls__button-card">
+            <span className="svc-calls__button-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 4v15m-6-6 6 6 6-6" />
+              </svg>
+            </span>
+            <p className="svc-calls__button-copy" lang={locale} dir={direction}>{t('callsIntro')}</p>
+          </div>
         </div>
 
         
@@ -72,7 +79,7 @@ export function ServicesContent() {
           
           <div className="svc-calls__phone-stage" data-reveal="scale">
             <div className="svc-calls__phone-wrapper">
-              <img src="../assets/images/phone.webp" alt="Vintage phone receiver hanging by coiled cord" className="svc-calls__phone-img" />
+              <img src="/assets/images/phone.webp" alt={t('phoneAlt')} className="svc-calls__phone-img" />
             </div>
           </div>
 
@@ -112,7 +119,7 @@ export function ServicesContent() {
               
               <div className="folder-card__col folder-card__col--content">
                 <div className="folder-card__media-wrap folder-card__media-wrap--chess">
-                  <img src="../assets/images/Chess.webp" alt="Strategic chess pieces" className="folder-card__media-img folder-card__media-img--chess" />
+                  <img src="/assets/images/Chess.webp" alt="Strategic chess pieces" className="folder-card__media-img folder-card__media-img--chess" />
                 </div>
                 <p className="folder-card__desc">
                   {t('audienceDescription')}
@@ -146,7 +153,7 @@ export function ServicesContent() {
                   {t('motionDescription')}
                 </p>
                 <div className="folder-card__media-wrap folder-card__media-wrap--camera">
-                  <img src="../assets/images/production.webp" alt="Production camera on tripod" className="folder-card__media-img folder-card__media-img--camera" />
+                  <img src="/assets/images/production.webp" alt="Production camera on tripod" className="folder-card__media-img folder-card__media-img--camera" />
                 </div>
               </div>
             </div>
@@ -174,7 +181,7 @@ export function ServicesContent() {
               
               <div className="folder-card__col folder-card__col--content">
                 <div className="folder-card__media-wrap folder-card__media-wrap--visual">
-                  <img src="../assets/images/visual.webp" alt="Brand visual system star & megaphone" className="folder-card__media-img folder-card__media-img--megaphone" />
+                  <img src="/assets/images/visual.webp" alt="Brand visual system star & megaphone" className="folder-card__media-img folder-card__media-img--megaphone" />
                 </div>
                 <p className="folder-card__desc">
                   {t('visualDescription')}
@@ -190,31 +197,31 @@ export function ServicesContent() {
     <section className="gl-18" aria-label={t('gallery')}>
       <div className="gl-18__viewport">
         <div className="gl-18__track">
-          <img src="../assets/images/mmm.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/ff.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/pr.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/ppp.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/mmo.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/g1.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/fashion1.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/e.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/sh2.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/m.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/f1.webp" alt="" loading="lazy" decoding="async" />
-          <img src="../assets/images/faa.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/mmm.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/ff.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/pr.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/ppp.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/mmo.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/g1.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/fashion1.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/e.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/sh2.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/m.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/f1.webp" alt="" loading="lazy" decoding="async" />
+          <img src="/assets/images/faa.webp" alt="" loading="lazy" decoding="async" />
           <div className="gl-18__duplicate" aria-hidden="true">
-            <img src="../assets/images/mmm.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/ff.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/pr.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/ppp.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/mmo.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/g1.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/fashion1.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/e.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/sh2.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/m.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/f1.webp" alt="" loading="lazy" decoding="async" />
-            <img src="../assets/images/faa.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/mmm.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/ff.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/pr.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/ppp.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/mmo.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/g1.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/fashion1.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/e.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/sh2.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/m.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/f1.webp" alt="" loading="lazy" decoding="async" />
+            <img src="/assets/images/faa.webp" alt="" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

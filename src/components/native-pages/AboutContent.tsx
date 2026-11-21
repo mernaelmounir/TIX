@@ -4,6 +4,7 @@
 
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { Link } from '@/i18n/navigation';
 
 const insideFramePhotos = [
   { src: '/assets/images/bts1.webp', shape: 'wide' },
@@ -13,44 +14,51 @@ const insideFramePhotos = [
   { src: '/assets/images/bts4.webp', shape: 'tall' },
 ];
 
+const brandWordKeys = ['attention', 'impact', 'presence', 'movement', 'direction', 'culture'] as const;
+const brandWordColors = {
+  attention: 'word-red',
+  impact: 'word-beige',
+  presence: 'word-red',
+  movement: 'word-beige',
+  direction: 'word-beige',
+  culture: 'word-red',
+} as const;
+
 export function AboutContent() {
   const t = useTranslations('AboutPage');
+  const revision = useTranslations('RevisionCopy');
   const locale = useLocale();
   const direction = locale === 'ar' ? 'rtl' : 'ltr';
   const [galleryPaused, setGalleryPaused] = useState(false);
+  const brandWords = brandWordKeys.map((key) => ({ key, label: revision(`brandWords.${key}`), color: brandWordColors[key] }));
+  const brandWordsLabel = brandWords.map((word) => word.label).join(locale === 'ar' ? '، ' : ', ');
   return (
     <>
-
-  
-  
   <main id="main-content">
-    <section className="impact-hero" aria-label="Studio hero">
+    <section className="impact-hero" aria-label={locale === 'ar' ? 'واجهة الاستوديو' : 'Studio hero'}>
       <div className="container impact-hero__inner">
         <div className="impact-hero__content">
           <h1 className="impact-hero__title" data-reveal="left">{t('title')}</h1>
           <p className="impact-hero__headline" data-reveal="fade">
             {t('heroDescription')}
           </p>
-          <div className="impact-hero__proof" data-stagger aria-label={t('specialties')}>
-            <span className="proof-card proof-card--1">ALEXANDRIA / EST. 2025</span>
-            <span className="proof-card proof-card--2">CREATIVE STUDIO</span>
-            <span className="proof-card proof-card--3">MARKETING &amp; PRODUCTION</span>
+          <div className="impact-hero__proof" data-stagger aria-label={t('specialties')} dir={direction}>
+            <span className="proof-card proof-card--1" lang={locale} dir={direction}>{locale === 'ar' ? 'الإسكندرية / تأسسنا ٢٠٢٥' : 'ALEXANDRIA / EST. 2025'}</span>
+            <span className="proof-card proof-card--2" lang={locale} dir={direction}>{locale === 'ar' ? 'استوديو إبداعي' : 'CREATIVE STUDIO'}</span>
+            <span className="proof-card proof-card--3" lang={locale} dir={direction}>{locale === 'ar' ? 'التسويق والإنتاج' : 'MARKETING & PRODUCTION'}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section className="brand-focus" aria-label="For brands that need attention">
+    <section className="brand-focus" aria-label={revision('brandNeedStable')}>
       <div className="container">
-        <p className="brand-focus__line" data-reveal="fade">
-          <span>{t('brandNeed')}</span>
-          <span className="brand-focus__window" role="img" aria-label="Attention, Impact, Presence, Movement, Culture">
-            <span className="brand-focus__track" aria-hidden="true">
-              <span className="word-red">ATTENTION</span>
-              <span className="word-beige">IMPACT</span>
-              <span className="word-red">PRESENCE</span>
-              <span className="word-beige">MOVEMENT</span>
-              <span className="word-red">ATTENTION</span>
+        <p className="brand-focus__line" data-reveal="fade" dir={direction}>
+          <span className="brand-focus__stable" lang={locale} dir={direction}>{revision('brandNeedStable')}</span>
+          <span className="brand-focus__window" role="img" aria-label={brandWordsLabel} lang={locale} dir={direction}>
+            <span className="brand-focus__track" aria-hidden="true" dir={direction}>
+              {brandWords.map((word) => <span className={word.color} key={word.key}>{word.label}</span>)}
+              <span className={brandWords[0].color}>{brandWords[0].label}</span>
             </span>
           </span>
         </p>
@@ -84,29 +92,29 @@ export function AboutContent() {
       </div>
     </section>
 
-    <section className="touchpoints !relative !h-auto !w-full !bg-black" data-touchpoints aria-label="Built across every touchpoint">
-      <div className="touchpoints__stage !relative !inset-auto !mx-0 !w-full !max-w-none !aspect-[1852/2067] !h-auto !overflow-hidden !bg-black">
-        <img className="touchpoints__art !absolute !inset-0 !z-[2] !block !h-full !w-full !max-w-none !object-fill !transform-none" src="/assets/images/Group%20109.webp" alt="" aria-hidden="true" />
+    <section className="touchpoints" data-touchpoints aria-label={t('touchpoints')}>
+      <div className="touchpoints__stage">
+        <img className="touchpoints__art" src="/assets/images/Group%20109.webp" alt="" aria-hidden="true" />
 
-        <div className="touchpoints__copy !absolute !inset-x-0 !left-0 !right-0 !top-[17%] !z-[6] !mx-auto !w-[53.51%] ![transform:none] !text-center">
-          <h2 className="!normal-case !text-[clamp(1.25rem,5.35vw,6rem)] !leading-[0.98]">{t('touchpoints')}</h2>
-          <p className="!mx-auto !mt-[1.8%] !w-[89.5%] !max-w-none !text-[clamp(0.72rem,2.6vw,3rem)] !leading-[1.3]">{t('touchpointDescription')}</p>
+        <div className="touchpoints__copy" lang={locale} dir={direction}>
+          <h2>{t('touchpoints')}</h2>
+          <p>{t('touchpointDescription')}</p>
         </div>
 
-        <img className="touchpoints__logo !absolute !inset-x-0 !top-[60%] !z-[5] !mx-auto !w-[22%] ![transform:translateY(-50%)]" src="/assets/images/logoback.webp" alt="TIX Marketing &amp; Production Agency" />
+        <img className="touchpoints__logo" src="/assets/images/logoback.webp" alt="TIX Marketing &amp; Production Agency" />
 
-        <div className="touchpoints__cards" aria-label="Our connected disciplines">
-          <img className="touchpoints__card touchpoints__card--1 !absolute !z-[4] !block !h-auto !will-change-transform" src="/assets/images/card1.webp" alt="Strategy: marketing strategy, performance campaigns, social media management, and brand positioning" data-flight-card="0" />
-          <img className="touchpoints__card touchpoints__card--2 !absolute !z-[4] !block !h-auto !will-change-transform" src="/assets/images/card2.webp" alt="Production: commercial filming, photography, motion graphics, and event coverage" data-flight-card="1" />
-          <img className="touchpoints__card touchpoints__card--3 !absolute !z-[4] !block !h-auto !will-change-transform" src="/assets/images/card3.webp" alt="Digital: UI/UX design, website development, and interactive experiences" data-flight-card="2" />
-          <img className="touchpoints__card touchpoints__card--4 !absolute !z-[4] !block !h-auto !will-change-transform" src="/assets/images/card4.webp" alt="Visuals: graphic design, brand systems, creative direction, and packaging" data-flight-card="3" />
+        <div className="touchpoints__cards" aria-label={locale === 'ar' ? 'تخصصاتنا المتكاملة' : 'Our connected disciplines'}>
+          <img className="touchpoints__card touchpoints__card--1" src="/assets/images/card1.webp" alt="Strategy: marketing strategy, performance campaigns, social media management, and brand positioning" data-flight-card="0" />
+          <img className="touchpoints__card touchpoints__card--2" src="/assets/images/card2.webp" alt="Production: commercial filming, photography, motion graphics, and event coverage" data-flight-card="1" />
+          <img className="touchpoints__card touchpoints__card--3" src="/assets/images/card3.webp" alt="Digital: UI/UX design, website development, and interactive experiences" data-flight-card="2" />
+          <img className="touchpoints__card touchpoints__card--4" src="/assets/images/card4.webp" alt="Visuals: graphic design, brand systems, creative direction, and packaging" data-flight-card="3" />
         </div>
 
       </div>
     </section>
 
     
-    <section className="connection" aria-label="Connection">
+    <section className="connection" aria-label={t('connection')}>
       <div className="container">
         <div className="connection__inner">
           <div data-reveal="left">
@@ -118,7 +126,7 @@ export function AboutContent() {
               {t('connectionBody')}
             </p>
             <div style={{"marginTop": "2rem"}}>
-              <a href="/contact" className="btn btn--crimson">{t('startBrand')}</a>
+              <Link href="/contact" className="btn btn--crimson">{t('startBrand')}</Link>
             </div>
           </div>
 
@@ -130,19 +138,12 @@ export function AboutContent() {
     </section>
 
     
-    <div className="bts__ticker" lang="en" dir="ltr" aria-hidden="true" data-marquee-before-bts>
+    <div className="bts__ticker" lang={locale} dir={direction} aria-hidden="true" data-marquee-before-bts>
       <div className="marquee marquee--slow">
         <div className="marquee__track">
-          <span className="marquee__item">Frame 024 <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Light Test <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Pre-Production <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">On Set <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Raw Signal <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Frame 024 <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Light Test <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Pre-Production <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">On Set <span className="marquee__sep">—</span></span>
-          <span className="marquee__item">Raw Signal <span className="marquee__sep">—</span></span>
+          {[t('filters.frame'), t('filters.light'), t('filters.pre'), t('filters.set'), t('filters.raw'), t('filters.frame'), t('filters.light'), t('filters.pre'), t('filters.set'), t('filters.raw')].map((item, index) => (
+            <span className="marquee__item" key={`${item}-${index}`}>{item} <span className="marquee__sep">—</span></span>
+          ))}
         </div>
       </div>
     </div>

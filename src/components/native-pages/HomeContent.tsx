@@ -3,6 +3,7 @@
 'use client';
 
 import { useLocale, useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { HomeBrandsSection } from './HomeBrandsSection';
 
 const serviceRibbonItems = ['TIX', 'CREATIVE DIRECTION', 'STRATEGY', 'PRODUCTION', 'DIGITAL EXPERIENCE', 'LUXURY CAMPAIGNS'];
@@ -33,11 +34,11 @@ export function HomeContent() {
 
   <main id="main-content">
 
-    <section className="hero" aria-label="Hero introduction">
+    <section className="hero" aria-label={locale === 'ar' ? 'مقدمة الموقع' : 'Hero introduction'}>
 
       
       <div className="hero__bg" aria-hidden="true">
-        <img src="assets/images/HERO.webp" alt="" className="hero__bg-img" width="1920" height="1080" loading="eager"
+        <img src="/assets/images/HERO.webp" alt="" className="hero__bg-img" width="1920" height="1080" loading="eager"
           fetchPriority="high" />
         <div className="hero__bg-overlay"></div>
       </div>
@@ -49,7 +50,7 @@ export function HomeContent() {
 
           
           <div className="hero__logo-wrap">
-            <img src="assets/images/tixx.webp" alt="TIX Creative Agency" className="hero__logo-img" />
+            <img src="/assets/images/tixx.webp" alt="TIX Creative Agency" className="hero__logo-img" />
           </div>
 
           <h2 className="hero__headline-light">{t('heroLight')}</h2>
@@ -66,9 +67,9 @@ export function HomeContent() {
 
           
           <div className="hero__actions">
-            <a href="/about" className="btn btn--crimson btn--lg">
+            <Link href="/about" className="btn btn--crimson btn--lg">
               {t('enterStudio')}
-            </a>
+            </Link>
           </div>
 
         </div>
@@ -108,7 +109,7 @@ export function HomeContent() {
 
         
         <div className="tix-oval-card tix-card-mid delay-2 observer-target">
-          <img src="assets/images/Perfumes.webp" alt={t('perfumes')} />
+          <img src="/assets/images/Perfumes.webp" alt={t('perfumes')} />
           <span className="tix-card-label">{t('perfumes')}</span>
         </div>
 
@@ -120,13 +121,13 @@ export function HomeContent() {
 
         
         <div className="tix-oval-card tix-card-mid delay-2 observer-target">
-          <img src="assets/images/jewelry.webp" alt={t('jewelry')} />
+          <img src="/assets/images/jewelry.webp" alt={t('jewelry')} />
           <span className="tix-card-label">{t('jewelry')}</span>
         </div>
 
         
         <div className="tix-oval-card tix-card-edge delay-3 observer-target">
-          <img src="assets/images/food.webp" alt={t('food')} />
+          <img src="/assets/images/food.webp" alt={t('food')} />
           <span className="tix-card-label">{t('food')}</span>
         </div>
       </div>
@@ -138,36 +139,39 @@ export function HomeContent() {
     <HomeBrandsSection />
 
     
-    <section className="disrupt !bg-transparent" data-disrupt-pin aria-label="Studio services">
-      <div className="disrupt__sticky isolate relative flex h-[100dvh] w-full items-stretch justify-center !overflow-visible !bg-transparent px-[clamp(0.75rem,2.5vw,2.5%)]">
+    <section className="disrupt" data-disrupt-pin aria-labelledby="disrupt-heading">
+      <div className="disrupt__sticky" data-disrupt-sticky>
 
         
         <div className="disrupt__bg" aria-hidden="true">
           <div className="disrupt__grad-wrap">
-            <img src="assets/images/grad.webp" alt="" className="disrupt__grad !mix-blend-lighten" width="1920" height="1080" loading="lazy" />
+            <img src="/assets/images/grad.webp" alt="" className="disrupt__grad !mix-blend-lighten" width="1920" height="1080" loading="lazy" />
           </div>
         </div>
 
         
-        <div className="disrupt__tix !-top-[clamp(5rem,10vh,7rem)] !z-[3] !w-[clamp(220px,30vw,360px)] max-lg:!-top-[clamp(4rem,8vh,5rem)] max-lg:!w-[min(44vw,220px)]" aria-hidden="true">
-          <img src="assets/images/tixx.webp" alt="" className="disrupt__tix-img !filter-none" width="800" height="320" loading="lazy" />
+        <div className="disrupt__tix" aria-hidden="true">
+          <img src="/assets/images/tixx.webp" alt="" className="disrupt__tix-img !filter-none" width="800" height="320" loading="lazy" />
         </div>
 
         
-        <div className="disrupt__left isolate !z-[3]">
-          <h2 className="disrupt__tagline whitespace-pre-line !z-[4] !-top-[clamp(10rem,28vh,16rem)] max-lg:!-top-[clamp(4rem,10vh,7rem)]" lang={locale} dir={direction}>
+        <div className="disrupt__left">
+          <h2 className="disrupt__tagline whitespace-pre-line max-[900px]:!whitespace-nowrap max-[900px]:!text-center" id="disrupt-heading" lang={locale} dir={direction}>
             {t('disrupt')}
           </h2>
-          <img src="assets/images/modelcrop.webp" alt="TIX creative campaign model" className="disrupt__girl !bottom-[clamp(3rem,8vh,6rem)] !z-[10] !mix-blend-normal max-lg:!bottom-[clamp(2rem,6vh,4rem)]"
+          <img src="/assets/images/modelcrop.webp" alt="TIX creative campaign model" className="disrupt__girl max-[900px]:!hidden"
             width="720" height="960" loading="lazy" />
         </div>
 
         
-        <div className="disrupt__right !z-[4]">
+        <div className="disrupt__right">
+          <p className="disrupt__scroll-hint" aria-hidden="true">
+            {locale === 'ar' ? 'مرّر أفقيًا للاستكشاف' : 'Scroll horizontally to explore'}
+          </p>
           <div className="disrupt__viewport">
             <div className="disrupt__track" data-disrupt-track>
 
-              <article className="disrupt__card !h-[clamp(560px,72vh,760px)] !rounded-tl-none !rounded-tr-[52px] !rounded-br-none !rounded-bl-[52px] max-lg:!h-[clamp(520px,68vh,680px)] max-lg:!rounded-tr-[34px] max-lg:!rounded-bl-[34px]">
+              <article className="disrupt__card">
                 <span className="disrupt__num">01</span>
                 <h3 className="disrupt__card-title">{t('marketing')}</h3>
                 <p className="disrupt__card-desc">{t('marketingDescription')}</p>
@@ -176,7 +180,7 @@ export function HomeContent() {
                 </ul>
               </article>
 
-              <article className="disrupt__card !h-[clamp(560px,72vh,760px)] !rounded-tl-none !rounded-tr-[52px] !rounded-br-none !rounded-bl-[52px] max-lg:!h-[clamp(520px,68vh,680px)] max-lg:!rounded-tr-[34px] max-lg:!rounded-bl-[34px]">
+              <article className="disrupt__card">
                 <span className="disrupt__num">02</span>
                 <h3 className="disrupt__card-title">{t('socialMedia')}</h3>
                 <p className="disrupt__card-desc">{t('socialDescription')}</p>
@@ -185,7 +189,7 @@ export function HomeContent() {
                 </ul>
               </article>
 
-              <article className="disrupt__card !h-[clamp(560px,72vh,760px)] !rounded-tl-none !rounded-tr-[52px] !rounded-br-none !rounded-bl-[52px] max-lg:!h-[clamp(520px,68vh,680px)] max-lg:!rounded-tr-[34px] max-lg:!rounded-bl-[34px]">
+              <article className="disrupt__card">
                 <span className="disrupt__num">03</span>
                 <h3 className="disrupt__card-title">{t('production')}</h3>
                 <p className="disrupt__card-desc">{t('productionDescription')}</p>
@@ -194,7 +198,7 @@ export function HomeContent() {
                 </ul>
               </article>
 
-              <article className="disrupt__card !h-[clamp(560px,72vh,760px)] !rounded-tl-none !rounded-tr-[52px] !rounded-br-none !rounded-bl-[52px] max-lg:!h-[clamp(520px,68vh,680px)] max-lg:!rounded-tr-[34px] max-lg:!rounded-bl-[34px]">
+              <article className="disrupt__card">
                 <span className="disrupt__num">04</span>
                 <h3 className="disrupt__card-title">{t('graphicDesign')}</h3>
                 <p className="disrupt__card-desc">{t('designDescription')}</p>
@@ -203,7 +207,7 @@ export function HomeContent() {
                 </ul>
               </article>
 
-              <article className="disrupt__card !h-[clamp(560px,72vh,760px)] !rounded-tl-none !rounded-tr-[52px] !rounded-br-none !rounded-bl-[52px] max-lg:!h-[clamp(520px,68vh,680px)] max-lg:!rounded-tr-[34px] max-lg:!rounded-bl-[34px]">
+              <article className="disrupt__card">
                 <span className="disrupt__num">05</span>
                 <h3 className="disrupt__card-title">{t('webDevelopment')}</h3>
                 <p className="disrupt__card-desc">{t('webDescription')}</p>
@@ -212,7 +216,7 @@ export function HomeContent() {
                 </ul>
               </article>
 
-              <article className="disrupt__card !h-[clamp(560px,72vh,760px)] !rounded-tl-none !rounded-tr-[52px] !rounded-br-none !rounded-bl-[52px] max-lg:!h-[clamp(520px,68vh,680px)] max-lg:!rounded-tr-[34px] max-lg:!rounded-bl-[34px]">
+              <article className="disrupt__card">
                 <span className="disrupt__num">06</span>
                 <h3 className="disrupt__card-title">{t('uiux')}</h3>
                 <p className="disrupt__card-desc">{t('uiuxDescription')}</p>
@@ -226,30 +230,30 @@ export function HomeContent() {
         </div>
 
         
-        <div className="disrupt__outro" data-disrupt-outro aria-hidden="true">
+        <div className="disrupt__outro !grid !grid-cols-4 !gap-1 sm:!gap-2" data-disrupt-outro role="group" aria-label={locale === 'ar' ? 'أبرز الخدمات الأربع' : 'Four service highlights'}>
           <article className="disrupt__tile">
-            <img src="assets/images/jw.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/strategy.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1600" height="1067" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title">{t('strategyTile')}</h3>
               <p className="disrupt__tile-sub">{t('strategyTileDescription')}</p>
             </div>
           </article>
           <article className="disrupt__tile">
-            <img src="assets/images/fashion-png.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/media-production.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1600" height="2400" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title">{t('mediaTile')}</h3>
               <p className="disrupt__tile-sub">{t('mediaTileDescription')}</p>
             </div>
           </article>
           <article className="disrupt__tile">
-            <img src="assets/images/j2.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/e.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1035" height="589" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title">{t('marketingTile')}</h3>
               <p className="disrupt__tile-sub">{t('marketingTileDescription')}</p>
             </div>
           </article>
           <article className="disrupt__tile">
-            <img src="assets/images/fashion1.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/digital-presence.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1600" height="1064" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title">{t('digitalTile')}</h3>
               <p className="disrupt__tile-sub">{t('digitalTileDescription')}</p>
@@ -287,7 +291,7 @@ export function HomeContent() {
         </h2>
 
         <div className="trust-section__cta">
-          <a href="/work" className="btn btn--outline">{t('seeWork')}</a>
+          <Link href="/work" className="btn btn--outline">{t('seeWork')}</Link>
         </div>
       </div>
     </section>

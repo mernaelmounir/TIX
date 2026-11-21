@@ -206,15 +206,18 @@ export function ArabicHomeContent() {
 
         
         <div className="disrupt__left">
-          <h2 className="disrupt__tagline">
-            اكسر<br />المألوف<br />بجرأة.
+          <h2 className="disrupt__tagline max-[900px]:!whitespace-nowrap max-[900px]:!text-center">
+            اكسر<br className="max-[900px]:hidden" />المألوف<br className="max-[900px]:hidden" />بجرأة.
           </h2>
-          <img src="../assets/images/modelcrop.webp" alt="عارضة في حملة إبداعية من TIX" className="disrupt__girl"
+          <img src="../assets/images/modelcrop.webp" alt="عارضة في حملة إبداعية من TIX" className="disrupt__girl max-[900px]:!hidden"
             width="720" height="960" loading="lazy" />
         </div>
 
         
         <div className="disrupt__right">
+          <p className="disrupt__scroll-hint" aria-hidden="true">
+            مرّر أفقيًا للاستكشاف
+          </p>
           <div className="disrupt__viewport">
             <div className="disrupt__track" data-disrupt-track>
 
@@ -301,30 +304,30 @@ export function ArabicHomeContent() {
         </div>
 
         
-        <div className="disrupt__outro" data-disrupt-outro aria-hidden="true">
+        <div className="disrupt__outro !grid !grid-cols-4 !gap-1 sm:!gap-2" data-disrupt-outro aria-hidden="true">
           <article className="disrupt__tile">
-            <img src="../assets/images/jw.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/strategy.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1600" height="1067" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title" lang="en" dir="ltr">Strategy</h3>
               <p className="disrupt__tile-sub">تموضع يرفض أن يكون عاديًا.</p>
             </div>
           </article>
           <article className="disrupt__tile">
-            <img src="../assets/images/fashion-png.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/media-production.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1600" height="2400" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title" lang="en" dir="ltr">Media Production</h3>
               <p className="disrupt__tile-sub">مشاهد صُممت لتأسر الانتباه.</p>
             </div>
           </article>
           <article className="disrupt__tile">
-            <img src="../assets/images/j2.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/e.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1035" height="589" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title" lang="en" dir="ltr">Marketing</h3>
               <p className="disrupt__tile-sub">حملات تفهم الثقافة وتحولها إلى تفاعل.</p>
             </div>
           </article>
           <article className="disrupt__tile">
-            <img src="../assets/images/fashion1.webp" alt="" className="disrupt__tile-img" width="400" height="520" loading="lazy" />
+            <img src="/assets/images/digital-presence.webp" alt="" className="disrupt__tile-img !grayscale contrast-[1.05]" width="1600" height="1064" loading="lazy" />
             <div className="disrupt__tile-copy">
               <h3 className="disrupt__tile-title" lang="en" dir="ltr">Digital Presence</h3>
               <p className="disrupt__tile-sub">واجهات بهوية لا تخطئها العين.</p>

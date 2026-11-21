@@ -1,16 +1,21 @@
 
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
+import { ContactEntrance } from '@/components/contact/ContactEntrance';
 import { ContactFooter } from '@/components/contact/ContactFooter';
 
 export function ContactContent() {
   const t = useTranslations('ContactForm');
+  const copy = useTranslations('RevisionCopy');
+  const locale = useLocale();
+  const direction = locale === 'ar' ? 'rtl' : 'ltr';
   return (
     <main
       id="main-content"
       className="contact-single-page min-h-screen w-full"
+      dir={direction}
     >
       <section
         className="
@@ -41,60 +46,30 @@ export function ContactContent() {
           aria-hidden="true"
         />
 
-        {/* Centered content */}
-        <div
-          className="
-            contact-single-section__inner
-            relative z-10 mx-auto flex w-full
-            max-w-[1100px]
-            flex-col items-center
-          "
-        >
-          {/* Form wrapper: centered with additional top spacing */}
-          <div
-            className="
-              relative mx-auto mt-14
-              w-full max-w-[820px]
-              sm:mt-16
-              lg:mt-20
-            "
-          >
-            {/* Glass heading — not an h1 */}
+        {/* The form and four existing portfolio photos enter from the center. */}
+        <ContactEntrance>
+          <div className="contact-entrance__form-wrap">
+            {/* Padded glass page heading */}
             <div
-              className="
-                pointer-events-none
-                absolute left-1/2 top-0 z-20
-                w-max max-w-[calc(100%-24px)]
-                -translate-x-1/2 -translate-y-1/2
-              "
+              className="contact-entrance__heading"
             >
               <div
-                className="
-    rounded-full
-    border border-white/65
-    bg-white/35
-    px-8 py-3
-    shadow-[0_14px_38px_rgba(45,0,0,0.22)]
-    backdrop-blur-xl
-    sm:px-12 sm:py-4
-  "
+                className="contact-entrance__heading-pill"
               >
-                <p
+                <h1
                   id="contact-form-heading"
-                  role="heading"
-                  aria-level={2}
                   className="
-    whitespace-nowrap
+    whitespace-normal text-balance
     font-display
-    text-[clamp(0.85rem,2.5vw,1.8rem)]
+    text-[clamp(0.85rem,2.4vw,1.6rem)]
     font-bold uppercase
     leading-none tracking-[0.04em]
     text-[#710a12]
     [text-shadow:0_2px_8px_rgba(113,10,18,0.25)]
   "
                 >
-                  {t('heading')}
-                </p>
+                  {copy('contactHeadline')}
+                </h1>
               </div>
             </div>
 
@@ -113,16 +88,19 @@ export function ContactContent() {
                 lg:px-12 lg:pb-12
               "
             >
-              <p
-                className="
-                  contact-single-section__intro
-                  mb-8 text-center
-                "
-              >
-                {t('intro')}
-              </p>
+              <div className="contact-copy mb-8 text-center">
+                <p className="contact-copy__eyebrow" lang={locale} dir={direction}>
+                  {t('heading')}
+                </p>
+                <p className="contact-copy__service" lang={locale === 'ar' ? 'ar' : 'en'}>
+                  {copy('contactServiceLine')}
+                </p>
+                <p className="contact-single-section__intro contact-copy__body">
+                  {copy('contactCopy')}
+                </p>
+              </div>
 
-              <form noValidate>
+              <form dir={direction}>
                 {/* Name + Email */}
                 <div
                   className="
@@ -165,6 +143,7 @@ export function ContactContent() {
                       type="email"
                       id="email"
                       name="email"
+                      dir="ltr"
                       placeholder={t('emailPlaceholder')}
                       autoComplete="email"
                       maxLength={254}
@@ -173,7 +152,7 @@ export function ContactContent() {
                   </div>
                 </div>
 
-                {/* Project */}
+                {/* Project / What are you building */}
                 <div className="form-group mb-6">
                   <label
                     className="form-label"
@@ -182,33 +161,22 @@ export function ContactContent() {
                     {t('project')}
                   </label>
 
-                  <input
-                    className="form-input"
-                    type="text"
+                  <textarea
+                    className="
+                      form-input form-textarea
+                      w-full
+                      min-h-[140px] sm:min-h-[170px]
+                      resize-y
+                      rounded-[14px] sm:rounded-[18px]
+                      p-3.5 sm:p-4
+                      text-[0.92rem] sm:text-[0.96rem]
+                      leading-relaxed
+                    "
                     id="building"
                     name="building"
                     placeholder={t('projectPlaceholder')}
-                    maxLength={200}
-                  />
-                </div>
-
-                {/* Help */}
-                <div className="form-group mb-7">
-                  <label
-                    className="form-label"
-                    htmlFor="help"
-                  >
-                    {t('helpPrompt')}
-                  </label>
-
-                  <textarea
-                    className="form-textarea"
-                    id="help"
-                    name="help"
-                    placeholder={t('helpPlaceholder')}
-                    rows={4}
-                    minLength={10}
                     maxLength={5000}
+                    rows={5}
                     required
                   />
                 </div>
@@ -234,7 +202,7 @@ export function ContactContent() {
               </form>
             </div>
           </div>
-        </div>
+        </ContactEntrance>
       </section>
 
       <ContactFooter />

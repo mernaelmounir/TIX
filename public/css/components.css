@@ -285,23 +285,22 @@ html[lang="ar"] .nav__language {
   color: var(--white);
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  border: 0;
   border-radius: 12px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .2s ease,
-    box-shadow .3s ease;
+  box-shadow: none;
+  transition: opacity .2s ease;
 }
 
 .nav__burger:hover {
-  background: rgba(139, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: scale(1.04);
+  background: transparent;
+  border-color: transparent;
+  opacity: .75;
+}
+
+.nav__burger:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 3px;
 }
 
 .nav__burger span {

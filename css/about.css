@@ -1290,7 +1290,7 @@
 
 @media (max-width: 560px) {
   .impact-hero {
-    min-height: 92svh;
+    min-height: clamp(29rem, 64svh, 36rem);
     padding-top: calc(var(--nav-height) + 1.5rem);
     padding-bottom: 2.5rem;
   }
@@ -1361,53 +1361,51 @@
 /* ── SCROLL-DRIVEN TOUCHPOINTS FLIGHT ───────────────────── */
 .touchpoints {
   position: relative;
-  height: 520vh;
+  height: auto;
   background: #080808;
   isolation: isolate;
 }
 
 .touchpoints__stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  min-height: 620px;
+  position: relative;
+  width: min(590px, calc(100vw - 46px));
+  aspect-ratio: 590 / 745;
+  height: auto;
+  min-height: 0;
+  margin-inline: auto;
   overflow: hidden;
   background: #080808;
-  clip-path: polygon(50% 0, 100% 34%, 100% 100%, 0 100%, 0 34%);
-  transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.touchpoints__stage.is-entered {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: none;
+  isolation: isolate;
 }
 
 .touchpoints__art {
   position: absolute;
   z-index: 2;
-  inset: -20vh auto auto 50%;
+  inset: 0;
   display: block;
-  width: 100vw;
-  height: auto;
-  max-width: none;
-  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  transform: none;
   pointer-events: none;
 }
 
 .touchpoints__copy {
   position: absolute;
   z-index: 6;
-  top: clamp(18%, 20vh, 23%);
+  top: 18.5%;
   left: 50%;
-  width: min(88%, 760px);
+  width: 78%;
   transform: translateX(-50%);
   text-align: center;
   color: #210305;
 }
 
 .touchpoints__kicker {
-  margin: 0 0 0.45rem;
+  margin: 0 0 0.35rem;
   color: #720b11;
-  font-size: clamp(0.62rem, 0.9vw, 0.82rem);
+  font-size: clamp(0.45rem, 0.66vw, 0.66rem);
   font-weight: 800;
   letter-spacing: 0.17em;
 }
@@ -1416,7 +1414,7 @@
   margin: 0;
   color: #720b11;
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4vw, 3.65rem);
+  font-size: clamp(1.4rem, 2.25vw, 2rem);
   font-weight: 900;
   line-height: 0.98;
   letter-spacing: -0.045em;
@@ -1425,10 +1423,10 @@
 }
 
 .touchpoints__copy > p:last-child {
-  max-width: 38ch;
-  margin: 0.75rem auto 0;
+  max-width: 25ch;
+  margin: 0.7rem auto 0;
   color: #201719;
-  font-size: clamp(0.82rem, 1.15vw, 1.05rem);
+  font-size: clamp(0.7rem, 0.95vw, 0.92rem);
   font-weight: 600;
   line-height: 1.45;
 }
@@ -1436,9 +1434,9 @@
 .touchpoints__logo {
   position: absolute;
   z-index: 3;
-  top: 55%;
+  top: 52.5%;
   left: 50%;
-  width: clamp(112px, 10vw, 176px);
+  width: 20%;
   height: auto;
   transform: translate(-50%, -50%);
   border-radius: 15px;
@@ -1449,69 +1447,47 @@
   position: absolute;
   z-index: 4;
   display: block;
-  width: clamp(260px, 18vw, 360px);
+  width: clamp(9rem, 24vw, 22rem);
   height: auto;
   opacity: 1;
-  filter: blur(12px) drop-shadow(0 24px 24px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(0 20px 24px rgba(0, 0, 0, 0.3));
   transform: translate3d(0, 0, 0) scale(1);
   transform-origin: center;
   will-change: transform, opacity, filter;
 }
 
 .touchpoints__card--1 {
-  top: 39%;
-  left: calc(50% - min(36vw, 650px));
+  top: 31%;
+  left: 2.5%;
 }
 
 .touchpoints__card--2 {
-  top: 39%;
-  right: calc(50% - min(36vw, 650px));
+  top: 31%;
+  right: 2.5%;
 }
 
 .touchpoints__card--3 {
-  top: 67%;
-  left: calc(50% - min(36vw, 650px));
+  top: 52%;
+  left: 6%;
 }
 
 .touchpoints__card--4 {
-  top: 67%;
-  right: calc(50% - min(36vw, 650px));
+  top: 52%;
+  right: 6%;
 }
-
-.touchpoints__wipe {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  clip-path: polygon(0 0, 50% 13%, 100% 0, 100% 86%, 50% 100%, 0 86%);
-  transform-origin: center;
-}
-
-.touchpoints__wipe--one { background: #5c0712; }
-.touchpoints__wipe--two { background: #920018; }
-.touchpoints__wipe--three { background: #bd1d32; }
 
 @media (max-width: 700px) {
   .touchpoints {
-    height: 390vh;
+    height: auto;
   }
 
   .touchpoints__stage {
-    min-height: 0;
-  }
-
-  .touchpoints__art {
-    inset: 50% auto auto 50%;
-    width: 100%;
-    height: 100%;
-    max-height: none;
-    transform: translate(-50%, -50%);
+    width: calc(100vw - 46px);
   }
 
   .touchpoints__copy {
-    top: 14%;
-    width: 82%;
+    top: 18.5%;
+    width: 78%;
   }
 
   .touchpoints__kicker {
@@ -1520,7 +1496,7 @@
   }
 
   .touchpoints__copy h2 {
-    font-size: clamp(1.55rem, 7.5vw, 2.2rem);
+    font-size: clamp(1.35rem, 7.5vw, 1.85rem);
   }
 
   .touchpoints__copy > p:last-child {
@@ -1529,49 +1505,37 @@
   }
 
   .touchpoints__logo {
-    top: 51%;
-    width: clamp(62px, 14vw, 84px);
+    top: 52.5%;
+    width: 20%;
     border-radius: 10px;
   }
 
-  .touchpoints__wipe {
-    inset: -4%;
-    width: auto;
-    aspect-ratio: auto;
-  }
-
   .touchpoints__card {
-    width: clamp(175px, 44vw, 230px);
-  }
-
-  .touchpoints__card--2,
-  .touchpoints__card--3,
-  .touchpoints__card--4 {
-    width: clamp(185px, 48vw, 240px);
+    width: clamp(7.75rem, 31vw, 11rem);
   }
 
   .touchpoints__card--1,
   .touchpoints__card--3 {
-    left: 1%;
+    left: 2.5%;
   }
 
   .touchpoints__card--2,
   .touchpoints__card--4 {
-    right: 1%;
+    right: 2.5%;
   }
 
   .touchpoints__card--1,
   .touchpoints__card--2 {
-    top: 29%;
+    top: 31%;
   }
 
   .touchpoints__card--2 {
-    top: 26%;
+    top: 31%;
   }
 
   .touchpoints__card--3,
   .touchpoints__card--4 {
-    top: 53%;
+    top: 52%;
   }
 }
 
@@ -1595,5 +1559,525 @@
 
   .touchpoints__wipe {
     display: none;
+  }
+}
+
+
+/* Studio: balanced black Touchpoints transition and full-width Inside the Frame reel */
+.touchpoints__stage {
+  clip-path: none !important;
+  background: #000;
+}
+
+.touchpoints__stage::before {
+  content: none;
+  display: none;
+}
+
+.touchpoints__stage::after {
+  content: '';
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.2) 7%, transparent 15%, transparent 86%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+.bts__ticker {
+  overflow: hidden;
+  margin: 1rem 0 2rem;
+}
+
+.bts__ticker .marquee__track {
+  width: max-content;
+}
+
+.bts__carousel {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+  padding: 1.25rem 0 2.5rem;
+  direction: ltr;
+}
+
+.bts__track {
+  display: flex;
+  width: max-content;
+  animation: btsPhotoLoop 48s linear infinite;
+  will-change: transform;
+}
+
+.bts__group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: stretch;
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+  padding-inline: 0.75rem;
+}
+
+.bts__img {
+  flex: 0 0 auto;
+  width: clamp(14rem, 22vw, 26rem);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: #111;
+}
+
+.bts__img--wide {
+  width: clamp(18rem, 32vw, 36rem);
+  aspect-ratio: 16 / 10;
+}
+
+.bts__img--tall {
+  aspect-ratio: 4 / 5;
+}
+
+.bts__img--square {
+  aspect-ratio: 1;
+}
+
+.bts__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes btsPhotoLoop {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bts__carousel:hover .bts__track {
+    animation-play-state: paused;
+  }
+}
+
+@media (max-width: 640px) {
+  .bts__ticker {
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .bts__carousel {
+    padding: 0.75rem 0 1.75rem;
+  }
+
+  .bts__group {
+    gap: 0.65rem;
+    padding-inline: 0.5rem;
+  }
+
+  .bts__img {
+    width: clamp(13rem, 69vw, 18rem);
+  }
+
+  .bts__img--wide {
+    width: clamp(16rem, 78vw, 21rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bts__carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bts__track {
+    animation: none;
+  }
+
+  .bts__group--duplicate {
+    display: none;
+  }
+
+  .bts__img {
+    scroll-snap-align: start;
+  }
+}
+
+
+/* Accessible user control for the continuously moving Studio reel */
+.bts__carousel-tools {
+  display: flex;
+  justify-content: flex-end;
+  direction: ltr;
+  margin: 1rem 0 0.75rem;
+}
+
+.bts__motion-toggle {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: #111;
+  color: var(--white, #fff);
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.74rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.bts__motion-toggle:hover,
+.bts__motion-toggle.is-paused {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: #252525;
+}
+
+.bts__motion-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.bts__motion-toggle-icon {
+  display: grid;
+  width: 1rem;
+  height: 1rem;
+  place-items: center;
+  font-family: sans-serif;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.bts__track.is-paused {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bts__carousel-tools {
+    display: none;
+  }
+}
+
+
+/* TIX Master Revision: six-word Studio sequence, true RTL composition and larger touchpoints. */
+.brand-focus__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: .12em .32em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.brand-focus__stable { flex: 0 1 auto; }
+.brand-focus__window { min-width: clamp(8rem, 17vw, 14rem); text-align: start; }
+.brand-focus__track {
+  animation: brandWordRollSix 18s cubic-bezier(.65,0,.35,1) infinite;
+  will-change: transform;
+}
+
+@keyframes brandWordRollSix {
+  0%, 12% { transform: translateY(0); }
+  16%, 27% { transform: translateY(-1.25em); }
+  31%, 42% { transform: translateY(-2.5em); }
+  46%, 57% { transform: translateY(-3.75em); }
+  61%, 72% { transform: translateY(-5em); }
+  76%, 87% { transform: translateY(-6.25em); }
+  91%, 100% { transform: translateY(-7.5em); }
+}
+
+html[lang="ar"] .brand-focus__line,
+html[lang="ar"] .brand-focus__stable,
+html[lang="ar"] .brand-focus__window {
+  direction: rtl;
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .brand-focus__line {
+  font-size: clamp(1.75rem, 4.4vw, 3.6rem);
+  font-weight: 500;
+  min-height: clamp(5.2rem, 8.5vw, 7.5rem);
+  line-height: 1.35;
+}
+
+html[lang="ar"] .brand-focus__window {
+  min-width: clamp(9.5rem, 20vw, 17rem);
+}
+
+@media (max-width: 768px) {
+  html[lang="ar"] .brand-focus__line {
+    font-size: clamp(1.35rem, 5.5vw, 2.1rem);
+    min-height: 4.4rem;
+    padding-inline: 1.25rem;
+  }
+
+  html[lang="ar"] .brand-focus__window {
+    min-width: clamp(7.5rem, 25vw, 11rem);
+  }
+}
+
+html[lang="ar"] .brand-focus__track {
+  line-height: 1.45em;
+  animation-name: brandWordRollSixArabic;
+}
+
+html[lang="ar"] .brand-focus__track > span { height: 1.45em; font-weight: 700; }
+
+@keyframes brandWordRollSixArabic {
+  0%, 12% { transform: translateY(0); }
+  16%, 27% { transform: translateY(-1.45em); }
+  31%, 42% { transform: translateY(-2.9em); }
+  46%, 57% { transform: translateY(-4.35em); }
+  61%, 72% { transform: translateY(-5.8em); }
+  76%, 87% { transform: translateY(-7.25em); }
+  91%, 100% { transform: translateY(-8.7em); }
+}
+
+html[lang="ar"] .impact-hero__content,
+html[lang="ar"] .impact-hero__title,
+html[lang="ar"] .impact-hero__headline {
+  direction: rtl;
+  text-align: right;
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .impact-hero__headline { line-height: 1.85; }
+html[lang="ar"] .impact-hero__proof { direction: rtl; align-items: flex-start; }
+html[lang="ar"] .impact-hero__proof .proof-card {
+  max-width: min(100%, 34rem);
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+  text-align: start;
+  white-space: normal;
+}
+html[lang="ar"] .impact-hero__proof .proof-card--1 { align-self: flex-start; margin-inline: 0 clamp(0rem, 7vw, 5rem); }
+html[lang="ar"] .impact-hero__proof .proof-card--2 { align-self: center; }
+html[lang="ar"] .impact-hero__proof .proof-card--3 { align-self: flex-end; margin-inline: clamp(0rem, 5vw, 4rem) 0; }
+
+/* Arabic Signal: put the paragraphs in the physical left column and the heading on the right. */
+html[lang="ar"] .signal-intro__inner {
+  direction: rtl;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+}
+html[lang="ar"] .signal-intro__left {
+  grid-column: 1;
+  grid-row: 1;
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] .signal-intro__right {
+  grid-column: 2;
+  grid-row: 1;
+  direction: rtl;
+  text-align: right;
+}
+html[lang="ar"] .signal-intro__title,
+html[lang="ar"] .signal-intro__tagline,
+html[lang="ar"] .signal-intro__p {
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+  text-align: right;
+}
+html[lang="ar"] .signal-intro__title { line-height: 1.35; text-transform: none; }
+html[lang="ar"] .signal-intro__p { line-height: 1.9; }
+
+html[lang="ar"] .connection__inner { direction: rtl; }
+html[lang="ar"] .connection__inner > div:first-child { text-align: right; }
+html[lang="ar"] .connection__title,
+html[lang="ar"] .connection__body,
+html[lang="ar"] .connection__label {
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+  text-align: right;
+}
+
+/* Preserve the approved Studio composition and the supplied image's native 3704:4994 ratio. */
+.touchpoints {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #000;
+}
+
+.touchpoints__stage {
+  position: relative;
+  width: min(100%, 1480px);
+  height: auto;
+  aspect-ratio: 3704 / 4994;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #000;
+}
+
+.touchpoints__art {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.touchpoints__copy {
+  position: absolute;
+  z-index: 6;
+  top: 16%;
+  left: 50%;
+  width: min(72%, 840px);
+  margin: 0;
+  color: #510000;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.touchpoints__copy h2 {
+  margin: 0;
+  color: #510000;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.touchpoints__copy p {
+  max-width: 58ch;
+  margin: .65rem auto 0;
+  color: rgba(255,255,255,.86);
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(.85rem, 1.5vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.touchpoints__logo {
+  position: absolute;
+  z-index: 7;
+  top: 48%;
+  left: 50%;
+  width: 22%;
+  height: auto;
+  max-width: none;
+  border-radius: 0;
+  filter: drop-shadow(0 12px 22px rgba(0,0,0,.45));
+  transform: translate(-50%, -50%);
+}
+
+.touchpoints__card {
+  position: absolute;
+  z-index: 4;
+  display: block;
+  width: clamp(12rem, 26vw, 26rem);
+  height: 38%;
+  max-width: 45%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 24px rgba(0,0,0,.28));
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.touchpoints__card--1 { top: 25%; left: 3%; }
+.touchpoints__card--2 { top: 25%; right: 3%; }
+.touchpoints__card--3 { top: auto; bottom: 11%; left: 5%; }
+.touchpoints__card--4 { top: auto; right: 5%; bottom: 11%; }
+
+@media (max-width: 900px) {
+  .touchpoints { width: 100%; }
+  .touchpoints__stage { width: 100vw; max-width: 100%; aspect-ratio: 3704 / 4994; }
+  .touchpoints__copy { top: 14%; width: 86%; }
+  .touchpoints__copy h2 {
+    font-size: clamp(1.55rem, 7vw, 2.8rem);
+    letter-spacing: -.025em;
+    line-height: 1.05;
+  }
+  .touchpoints__copy p {
+    width: 92%;
+    margin-top: .55rem;
+    font-size: clamp(.78rem, 2.8vw, 1rem);
+    line-height: 1.55;
+  }
+  .touchpoints__logo { top: 49%; width: 24%; }
+  .touchpoints__card {
+    width: 40%;
+    height: 35%;
+    max-width: 42%;
+    filter: drop-shadow(0 12px 18px rgba(0,0,0,.26));
+    will-change: auto;
+  }
+  .touchpoints__card--1 { top: 27%; left: 3%; }
+  .touchpoints__card--2 { top: 27%; right: 3%; }
+  .touchpoints__card--3 { top: auto; bottom: 9.5%; left: 3%; }
+  .touchpoints__card--4 { top: auto; right: 3%; bottom: 9.5%; }
+
+  html[lang="ar"] .signal-intro__inner { grid-template-columns: minmax(0, 1fr); }
+  html[lang="ar"] .signal-intro__left,
+  html[lang="ar"] .signal-intro__right { grid-column: auto; grid-row: auto; }
+  html[lang="ar"] .signal-intro__left { order: 0; }
+  html[lang="ar"] .signal-intro__right { order: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-focus__track { animation: none !important; transform: none !important; }
+  .touchpoints__card { will-change: auto; }
+}
+
+
+/* Arabic glyphs need their own line box; the rail still advances exactly one whole word per step. */
+html[lang="ar"] .brand-focus__window { height: 1.45em; line-height: 1.45em; }
+html[lang="ar"] .brand-focus__track > span { flex: 0 0 1.45em; height: 1.45em; }
+html[lang="ar"] .touchpoints__copy,
+html[lang="ar"] .touchpoints__copy h2,
+html[lang="ar"] .touchpoints__copy p {
+  direction: rtl;
+  font-family: "Readex Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+html[lang="ar"] .touchpoints__copy h2 { text-transform: none; line-height: 1.25; }
+html[lang="ar"] .touchpoints__copy p { line-height: 1.8; }
+
+@media (max-width: 900px) {
+  .touchpoints__card--1,
+  .touchpoints__card--2 { top: 33%; }
+}
+
+@media (max-width: 900px) {
+  .touchpoints__card { width: 39%; }
+}
+
+/* Mobile About: directional reveals must not push copy beyond the viewport. */
+@media (max-width: 900px) {
+  .impact-hero [data-reveal="left"],
+  .signal-intro [data-reveal="left"],
+  .signal-intro [data-reveal="right"],
+  .connection [data-reveal="left"],
+  .connection [data-reveal="right"] {
+    transform: none;
+  }
+
+  .connection__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .connection__inner > div,
+  .connection__watch {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .connection__title,
+  .connection__body {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 }

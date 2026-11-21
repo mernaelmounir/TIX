@@ -25,29 +25,219 @@
     "trust": "THEY TRUSTED US",
     "seeWork": "SEE THE WORK",
     "footerHeadline": "Let's make something impossible to ignore.",
-    "footerDescription": "Creative direction, production, and digital experiences designed to leave a mark."
-    ,"events": "Events", "perfumes": "Perfumes", "fashion": "Fashion", "jewelry": "Jewelry", "food": "Food",
-    "marketing": "Marketing", "socialMedia": "Social Media Management", "production": "Production", "graphicDesign": "Graphic Design", "webDevelopment": "Web Development", "uiux": "UI / UX", "they": "They", "trusted": "Trusted", "us": "Us",
-    "heroDescription": "Breaking conventions through cinematic excellence and high-fashion aesthetics. We build worlds, not just assets.", "activeCampaigns": "Active Campaigns: 12", "globalClients": "Global Clients: 28", "projectsDelivered": "Projects Delivered: 85+", "enterStudio": "Enter the Studio →", "brandDirection": "BRAND DIRECTION", "visualStrategy": "VISUAL STRATEGY", "audienceImpact": "AUDIENCE IMPACT", "marketingDescription": "We position your brand where it matters — building strategies that connect, perform, and scale.", "socialDescription": "We manage your presence like a brand, not a page — creating consistent, engaging content.", "productionDescription": "High-end visual content designed to capture attention and emotion — from concept to final frame.", "designDescription": "Visuals that communicate clearly and stand out instantly across every digital channel.", "webDescription": "Fast, scalable websites that translate your brand into a seamless digital experience.", "uiuxDescription": "Digital experiences that are intuitive, engaging, and built to convert — not just look good.", "strategyTile": "Strategy", "strategyTileDescription": "Positioning that refuses to blend in.", "mediaTile": "Media Production", "mediaTileDescription": "Frames built to hold attention.", "marketingTile": "Marketing", "marketingTileDescription": "Campaigns that convert culture.", "digitalTile": "Digital Presence", "digitalTileDescription": "Interfaces with unmistakable identity."
+    "footerDescription": "Creative direction, production, and digital experiences designed to leave a mark.",
+    "events": "Events",
+    "perfumes": "Perfumes",
+    "fashion": "Fashion",
+    "jewelry": "Jewelry",
+    "food": "Food",
+    "marketing": "Marketing",
+    "socialMedia": "Social Media Management",
+    "production": "Production",
+    "graphicDesign": "Graphic Design",
+    "webDevelopment": "Web Development",
+    "uiux": "UI / UX",
+    "they": "They",
+    "trusted": "Trusted",
+    "us": "Us",
+    "heroDescription": "Breaking conventions through cinematic excellence and high-fashion aesthetics. We build worlds, not just assets.",
+    "activeCampaigns": "Active Campaigns: 12",
+    "globalClients": "Global Clients: 28",
+    "projectsDelivered": "Projects Delivered: 85+",
+    "enterStudio": "Enter the Studio →",
+    "brandDirection": "BRAND DIRECTION",
+    "visualStrategy": "VISUAL STRATEGY",
+    "audienceImpact": "AUDIENCE IMPACT",
+    "marketingDescription": "We position your brand where it matters — building strategies that connect, perform, and scale.",
+    "socialDescription": "We manage your presence like a brand, not a page — creating consistent, engaging content.",
+    "productionDescription": "High-end visual content designed to capture attention and emotion — from concept to final frame.",
+    "designDescription": "Visuals that communicate clearly and stand out instantly across every digital channel.",
+    "webDescription": "Fast, scalable websites that translate your brand into a seamless digital experience.",
+    "uiuxDescription": "Digital experiences that are intuitive, engaging, and built to convert — not just look good.",
+    "strategyTile": "Strategy",
+    "strategyTileDescription": "Positioning that refuses to blend in.",
+    "mediaTile": "Media Production",
+    "mediaTileDescription": "Frames built to hold attention.",
+    "marketingTile": "Marketing",
+    "marketingTileDescription": "Campaigns that convert culture.",
+    "digitalTile": "Digital Presence",
+    "digitalTileDescription": "Interfaces with unmistakable identity."
   },
-  "HomeLists": { "marketing1": "/01 Social media strategy", "marketing2": "/02 Campaign planning", "marketing3": "/03 Paid advertising", "marketing4": "/04 Audience targeting", "marketing5": "/05 Performance analytics", "social1": "/01 Content planning", "social2": "/02 Posting & scheduling", "social3": "/03 Community management", "social4": "/04 Visual consistency", "social5": "/05 Engagement tracking", "production1": "/01 Photography", "production2": "/02 Video production", "production3": "/03 Lighting & styling", "production4": "/04 Creative direction", "production5": "/05 Post-production", "design1": "/01 Brand assets", "design2": "/02 Social media visuals", "design3": "/03 Print materials", "design4": "/04 Campaign design", "design5": "/05 Visual systems", "web1": "/01 Frontend development", "web2": "/02 Responsive design", "web3": "/03 Performance optimization", "web4": "/04 CMS integration", "web5": "/05 Deployment & support", "ui1": "/01 Website design", "ui2": "/02 App UI/UX", "ui3": "/03 E-commerce design", "ui4": "/04 Prototyping", "ui5": "/05 Design systems" },
+  "HomeLists": {
+    "marketing1": "/01 Social media strategy",
+    "marketing2": "/02 Campaign planning",
+    "marketing3": "/03 Paid advertising",
+    "marketing4": "/04 Audience targeting",
+    "marketing5": "/05 Performance analytics",
+    "social1": "/01 Content planning",
+    "social2": "/02 Posting & scheduling",
+    "social3": "/03 Community management",
+    "social4": "/04 Visual consistency",
+    "social5": "/05 Engagement tracking",
+    "production1": "/01 Photography",
+    "production2": "/02 Video production",
+    "production3": "/03 Lighting & styling",
+    "production4": "/04 Creative direction",
+    "production5": "/05 Post-production",
+    "design1": "/01 Brand assets",
+    "design2": "/02 Social media visuals",
+    "design3": "/03 Print materials",
+    "design4": "/04 Campaign design",
+    "design5": "/05 Visual systems",
+    "web1": "/01 Frontend development",
+    "web2": "/02 Responsive design",
+    "web3": "/03 Performance optimization",
+    "web4": "/04 CMS integration",
+    "web5": "/05 Deployment & support",
+    "ui1": "/01 Website design",
+    "ui2": "/02 App UI/UX",
+    "ui3": "/03 E-commerce design",
+    "ui4": "/04 Prototyping",
+    "ui5": "/05 Design systems"
+  },
   "AboutPage": {
     "title": "We build brands people remember.",
     "touchpoints": "Built across every touchpoint.",
     "connection": "Connection isn't optional",
     "force": "The Creative Force Behind Modern Brands",
-    "inside": "INSIDE THE FRAME", "heroDescription": "TIX is a full-service creative and marketing studio based in Alexandria, combining strategy, production and design under one vision.", "specialties": "Studio specialties", "brandNeed": "For Brands That Need", "signal": "THE SIGNAL", "storyTagline": "Every brand has a story.", "heardTagline": "We make sure it's heard.", "signalOne": "TIX was born where cinematic storytelling meets strategic execution.", "signalTwo": "We bring together filmmakers, marketers, designers, and digital builders to create brands that feel impossible to ignore.", "signalThree": "From campaigns and production to websites and visual systems, every discipline inside the studio works together under one creative direction.", "touchpointDescription": "One studio. Multiple creative systems. Unified brand experiences.", "connectionTitle": "If your audience doesn't feel it, it doesn't work.", "connectionBody": "We design brands that people engage with, not ignore. From awareness to conversion, every move is intentional.", "startBrand": "Start Your Brand →", "refusedDescription": "From the first strategic idea to the final frame, every detail is crafted to make your brand impossible to ignore.", "btsLead": "Where strategy, production, and visual storytelling meet", "btsDescription": "Fragments from the studio process. Ideas, experimentation, production, and the moments between the final shots.", "pauseGallery": "Pause carousel", "resumeGallery": "Resume carousel", "filters": { "frame": "Frame 024", "light": "Light Test", "pre": "Pre-Production", "set": "On Set", "raw": "Raw Signal" }
+    "inside": "INSIDE THE FRAME",
+    "heroDescription": "TIX is a full-service creative and marketing studio based in Alexandria, combining strategy, production and design under one vision.",
+    "specialties": "Studio specialties",
+    "brandNeed": "For Brands That Need",
+    "signal": "THE SIGNAL",
+    "storyTagline": "Every brand has a story.",
+    "heardTagline": "We make sure it's heard.",
+    "signalOne": "TIX was born where cinematic storytelling meets strategic execution.",
+    "signalTwo": "We bring together filmmakers, marketers, designers, and digital builders to create brands that feel impossible to ignore.",
+    "signalThree": "From campaigns and production to websites and visual systems, every discipline inside the studio works together under one creative direction.",
+    "touchpointDescription": "One studio. Multiple creative systems. Unified brand experiences.",
+    "connectionTitle": "If your audience doesn't feel it, it doesn't work.",
+    "connectionBody": "We design brands that people engage with, not ignore. From awareness to conversion, every move is intentional.",
+    "startBrand": "Start Your Brand →",
+    "refusedDescription": "From the first strategic idea to the final frame, every detail is crafted to make your brand impossible to ignore.",
+    "btsLead": "Where strategy, production, and visual storytelling meet",
+    "btsDescription": "Fragments from the studio process. Ideas, experimentation, production, and the moments between the final shots.",
+    "pauseGallery": "Pause carousel",
+    "resumeGallery": "Resume carousel",
+    "filters": {
+      "frame": "Frame 024",
+      "light": "Light Test",
+      "pre": "Pre-Production",
+      "set": "On Set",
+      "raw": "Raw Signal"
+    }
   },
   "ServicesPage": {
     "hero": "WHAT'S INSIDE",
     "studio": "THE STUDIO ?",
     "calls": "Creativity Calls We Answer",
-    "gallery": "Studio image gallery", "creativity": "CREATIVITY", "callsWord": "CALLS", "we": "WE", "answer": "ANSWER.", "audienceTitle": "AUDIENCE & INFLUENCE", "motionTitle": "MOTION & PRODUCTION", "visualTitle": "VISUAL SYSTEMS", "socialManagement": "Social Media Management", "contentCreation": "Content Creation", "performanceMarketing": "Performance Marketing", "mediaBuying": "Media Buying", "influencerMarketing": "Influencer Marketing", "creativeCampaigns": "Creative Campaigns", "seo": "SEO Optimization", "marketAnalysis": "Strategy & Market Analysis", "commercialProduction": "Commercial Video Production", "brandShoots": "Brand Shoots", "productPhotography": "Product Photography", "motionGraphics": "Motion Graphics", "videoEditing": "Video Editing", "podcastProduction": "Podcast Production", "eventCoverage": "Event Coverage", "shortForm": "Reels & Short-form Content", "graphicDesignService": "Graphic Design", "uiDesign": "UI Design", "packaging": "Packaging Design", "socialDesigns": "Social Media Designs", "presentation": "Presentation Design", "guidelines": "Brand Guidelines", "creativeConcepts": "Creative Concepts", "visualIdentity": "Visual Identity Systems", "audienceDescription": "Strategic systems designed to position brands, shape perception, and drive engagement.", "motionDescription": "Cinematic visual production crafted through storytelling, movement, and direction.", "visualDescription": "Design languages and creative assets developed to build recognizable and lasting identities."
+    "callsIntro": "Creative direction, strategy, production, and digital systems designed to shape modern brands.",
+    "phoneAlt": "Vintage phone receiver hanging by a coiled cord",
+    "gallery": "Studio image gallery",
+    "creativity": "CREATIVITY",
+    "callsWord": "CALLS",
+    "we": "WE",
+    "answer": "ANSWER.",
+    "audienceTitle": "AUDIENCE & INFLUENCE",
+    "motionTitle": "MOTION & PRODUCTION",
+    "visualTitle": "VISUAL SYSTEMS",
+    "socialManagement": "Social Media Management",
+    "contentCreation": "Content Creation",
+    "performanceMarketing": "Performance Marketing",
+    "mediaBuying": "Media Buying",
+    "influencerMarketing": "Influencer Marketing",
+    "creativeCampaigns": "Creative Campaigns",
+    "seo": "SEO Optimization",
+    "marketAnalysis": "Strategy & Market Analysis",
+    "commercialProduction": "Commercial Video Production",
+    "brandShoots": "Brand Shoots",
+    "productPhotography": "Product Photography",
+    "motionGraphics": "Motion Graphics",
+    "videoEditing": "Video Editing",
+    "podcastProduction": "Podcast Production",
+    "eventCoverage": "Event Coverage",
+    "shortForm": "Reels & Short-form Content",
+    "graphicDesignService": "Graphic Design",
+    "uiDesign": "UI Design",
+    "packaging": "Packaging Design",
+    "socialDesigns": "Social Media Designs",
+    "presentation": "Presentation Design",
+    "guidelines": "Brand Guidelines",
+    "creativeConcepts": "Creative Concepts",
+    "visualIdentity": "Visual Identity Systems",
+    "audienceDescription": "Strategic systems designed to position brands, shape perception, and drive engagement.",
+    "motionDescription": "Cinematic visual production crafted through storytelling, movement, and direction.",
+    "visualDescription": "Design languages and creative assets developed to build recognizable and lasting identities."
   },
   "WorkPage": {
     "title": "THE WORK",
     "gallery": "WORK GALLERY",
-    "story": "Every frame tells part of the story.", "subtitle": "Selected campaigns, productions, and visual systems.", "projectCount": "24 Projects — 5 Industries", "filter": "Filter work", "fashion": "Fashion", "jewelry": "Jewelry & Luxury", "beauty": "Perfume / Beauty", "food": "Food & Beverage", "events": "Events & Concerts", "realestate": "Real Estate & Corporates", "characterAlt": "Selected TIX campaign photography collage", "viewAll": "VIEW ALL", "categories": {"fashion": "FASHION", "jewelry": "JEWELRY & LUXURY", "beauty": "PERFUME / BEAUTY", "food": "FOOD & BEVERAGE", "events": "EVENTS & CONCERTS", "realestate": "REAL ESTATE & CORPORATES"}, "eyebrows": {"fashion": "FRAMES OF IDENTITY", "jewelry": "OBJECTS OF DESIRE", "beauty": "SCENT IN MOTION", "food": "CRAFTED APPETITE", "events": "LIVE IN MOTION", "realestate": "SPACES IN FRAME"}, "descriptions": {"fashion": "EDITORIAL FASHION PHOTOGRAPHY CRAFTED TO SHAPE PERCEPTION, PRESENCE, AND BRAND DESIRE.", "jewelry": "LUXURY PRODUCT PHOTOGRAPHY FOCUSED ON TEXTURE, DETAIL, CRAFTSMANSHIP, AND VISUAL SEDUCTION.", "beauty": "LUXURY BEAUTY AND FRAGRANCE VISUALS SHAPED THROUGH ATMOSPHERE, TEXTURE, AND EMOTION.", "food": "VISUAL CAMPAIGNS DESIGNED TO TRANSFORM PRODUCTS INTO SENSORY EXPERIENCES.", "events": "CONCERTS, CULTURAL EVENTS, AND LIVE EXPERIENCES CAPTURED THROUGH MOVEMENT, ATMOSPHERE, CROWD ENERGY, AND CINEMATIC STORYTELLING.", "realestate": "ARCHITECTURAL AND REAL ESTATE VISUALS CRAFTED TO CAPTURE ATMOSPHERE, DESIGN, SCALE, AND MODERN LIVING THROUGH CINEMATIC PHOTOGRAPHY."}, "labels": {"studio": "STUDIO SESSIONS", "model": "MODEL CASTING", "styling": "PRODUCT STYLING", "direction": "CREATIVE DIRECTION", "fashionPhotography": "FASHION PHOTOGRAPHY", "fineJewelry": "FINE JEWELRY", "campaignStills": "CAMPAIGN STILLS", "watchDetail": "WATCH DETAIL", "lookbook": "LOOKBOOK", "luxuryFilm": "LUXURY FILM", "bottleStills": "BOTTLE STILLS", "texture": "TEXTURE", "campaign": "CAMPAIGN", "editorial": "EDITORIAL", "beautyFilm": "BEAUTY FILM", "plating": "PLATING", "beverage": "BEVERAGE", "menu": "MENU", "liveStage": "LIVE STAGE", "backstage": "BACKSTAGE", "crowd": "CROWD", "lighting": "LIGHTING", "aftermovie": "AFTERMOVIE", "interior": "INTERIOR", "exterior": "EXTERIOR", "lifestyle": "LIFESTYLE", "corporate": "CORPORATE", "detail": "DETAIL"}
+    "story": "Every frame tells part of the story.",
+    "subtitle": "Selected campaigns, productions, and visual systems.",
+    "projectCount": "24 Projects — 5 Industries",
+    "filter": "Filter work",
+    "fashion": "Fashion",
+    "jewelry": "Jewelry & Luxury",
+    "beauty": "Perfume & Beauty",
+    "food": "Food & Beverage",
+    "events": "Events & Concerts",
+    "realestate": "Real Estate & Corporates",
+    "characterAlt": "Selected TIX campaign photography collage",
+    "viewAll": "VIEW ALL",
+    "categories": {
+      "fashion": "FASHION",
+      "jewelry": "JEWELRY & LUXURY",
+      "beauty": "PERFUME & BEAUTY",
+      "food": "FOOD & BEVERAGE",
+      "events": "EVENTS & CONCERTS",
+      "realestate": "REAL ESTATE & CORPORATES"
+    },
+    "eyebrows": {
+      "fashion": "FRAMES OF IDENTITY",
+      "jewelry": "OBJECTS OF DESIRE",
+      "beauty": "SCENT IN MOTION",
+      "food": "CRAFTED APPETITE",
+      "events": "LIVE IN MOTION",
+      "realestate": "SPACES IN FRAME"
+    },
+    "descriptions": {
+      "fashion": "EDITORIAL FASHION PHOTOGRAPHY CRAFTED TO SHAPE PERCEPTION, PRESENCE, AND BRAND DESIRE.",
+      "jewelry": "LUXURY PRODUCT PHOTOGRAPHY FOCUSED ON TEXTURE, DETAIL, CRAFTSMANSHIP, AND VISUAL SEDUCTION.",
+      "beauty": "LUXURY BEAUTY AND FRAGRANCE VISUALS SHAPED THROUGH ATMOSPHERE, TEXTURE, AND EMOTION.",
+      "food": "VISUAL CAMPAIGNS DESIGNED TO TRANSFORM PRODUCTS INTO SENSORY EXPERIENCES.",
+      "events": "CONCERTS, CULTURAL EVENTS, AND LIVE EXPERIENCES CAPTURED THROUGH MOVEMENT, ATMOSPHERE, CROWD ENERGY, AND CINEMATIC STORYTELLING.",
+      "realestate": "ARCHITECTURAL AND REAL ESTATE VISUALS CRAFTED TO CAPTURE ATMOSPHERE, DESIGN, SCALE, AND MODERN LIVING THROUGH CINEMATIC PHOTOGRAPHY."
+    },
+    "labels": {
+      "studio": "STUDIO SESSIONS",
+      "model": "MODEL CASTING",
+      "styling": "PRODUCT STYLING",
+      "direction": "CREATIVE DIRECTION",
+      "fashionPhotography": "FASHION PHOTOGRAPHY",
+      "fineJewelry": "FINE JEWELRY",
+      "campaignStills": "CAMPAIGN STILLS",
+      "watchDetail": "WATCH DETAIL",
+      "lookbook": "LOOKBOOK",
+      "luxuryFilm": "LUXURY FILM",
+      "bottleStills": "BOTTLE STILLS",
+      "texture": "TEXTURE",
+      "campaign": "CAMPAIGN",
+      "editorial": "EDITORIAL",
+      "beautyFilm": "BEAUTY FILM",
+      "plating": "PLATING",
+      "beverage": "BEVERAGE",
+      "menu": "MENU",
+      "liveStage": "LIVE STAGE",
+      "backstage": "BACKSTAGE",
+      "crowd": "CROWD",
+      "lighting": "LIGHTING",
+      "aftermovie": "AFTERMOVIE",
+      "interior": "INTERIOR",
+      "exterior": "EXTERIOR",
+      "lifestyle": "LIFESTYLE",
+      "corporate": "CORPORATE",
+      "detail": "DETAIL"
+    }
   },
   "ContactPage": {
     "title": "Contact TIX Studio",
@@ -55,7 +245,14 @@
     "email": "Email",
     "branches": "Our Branches",
     "follow": "Follow Us",
-    "legal": "Legal links", "followUs": "Follow Us", "contactIntroFirst": "Let's make\nsomething", "contactIntroSecond": "impossible\nto ignore.", "emailLabel": "Email", "branchesLabel": "Our Branches", "contactInformation": "Contact information", "characterAlt": "TIX creative producer with a camera"
+    "legal": "Legal links",
+    "followUs": "Follow Us",
+    "contactIntroFirst": "Let's make\nsomething",
+    "contactIntroSecond": "impossible\nto ignore.",
+    "emailLabel": "Email",
+    "branchesLabel": "Our Branches",
+    "contactInformation": "Contact information",
+    "characterAlt": "TIX creative producer with a camera"
   },
   "ContactForm": {
     "name": "Your name",
@@ -65,10 +262,26 @@
     "submit": "Send message",
     "sending": "Sending…",
     "success": "Message sent. We will be in touch soon.",
-    "error": "Unable to send your message.", "heading": "LET'S GET IN TOUCH", "intro": "Tell us what you are building. We will take it from there.", "project": "What are you building?", "projectPlaceholder": "A campaign, a launch, a brand, a digital experience...", "helpPrompt": "What do you need help with?", "helpPlaceholder": "Tell us about your brand, your goals, your timeline...", "namePlaceholder": "Your name", "emailPlaceholder": "you@brand.com"
+    "error": "Unable to send your message.",
+    "heading": "LET'S GET IN TOUCH",
+    "intro": "Tell us what you are building. We will take it from there.",
+    "project": "What are you building?",
+    "projectPlaceholder": "A campaign, a launch, a brand, a digital experience...",
+    "helpPrompt": "What do you need help with?",
+    "helpPlaceholder": "Tell us about your brand, your goals, your timeline...",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "you@brand.com"
   },
-  "Accessibility": { "instagram": "TIX on Instagram", "facebook": "TIX on Facebook", "linkedin": "TIX on LinkedIn", "whatsapp": "TIX on WhatsApp", "tiktok": "TIX on TikTok" },
-  "Footer": { "folder": "Folder with project images", "imageAlt": "TIX footer image",
+  "Accessibility": {
+    "instagram": "TIX on Instagram",
+    "facebook": "TIX on Facebook",
+    "linkedin": "TIX on LinkedIn",
+    "whatsapp": "TIX on WhatsApp",
+    "tiktok": "TIX on TikTok"
+  },
+  "Footer": {
+    "folder": "Folder with project images",
+    "imageAlt": "TIX footer image",
     "support": "Support",
     "terms": "Terms & Conditions",
     "privacy": "Privacy Policy",
@@ -90,6 +303,30 @@
     "privacyTitle": "Privacy Policy | TIX Studio",
     "privacyDescription": "Learn what information TIX Studio receives through this website and how contact enquiries are handled."
   },
+  "RevisionCopy": {
+    "brandShowcase": "Selected brand campaigns",
+    "brandCarousel": "brand carousel",
+    "brandSlide": "slide",
+    "brandScrollHint": "Scroll horizontally to explore",
+    "brandNeedStable": "For brands that need",
+    "brandWords": {
+      "attention": "ATTENTION",
+      "impact": "IMPACT",
+      "presence": "PRESENCE",
+      "movement": "MOVEMENT",
+      "direction": "DIRECTION",
+      "culture": "CULTURE"
+    },
+    "scrollCategories": "Work categories — horizontal scrolling area",
+    "nextCategory": "Next category",
+    "contactHeadline": "What do you want the world to feel?",
+    "contactServiceLine": "Strategy. Production. Digital. Visual.",
+    "contactCopy": "Tell us what you're building, what you're imagining, what your brand is missing.",
+    "helpSelect": "Choose how we can help",
+    "helpMarketing": "I want to improve my marketing.",
+    "helpGraphicDesign": "I need a graphic design post.",
+    "helpCampaign": "I want to create a campaign."
+  },
   "NotFound": {
     "title": "Page not found",
     "description": "The page you're looking for doesn't exist.",
@@ -102,35 +339,104 @@
       "title": "Terms & Conditions",
       "intro": "These general terms explain the basic conditions for using the TIX Studio website. They are not a substitute for a separate written agreement for an individual project.",
       "sections": {
-        "acceptance": {"title": "Introduction and acceptance", "body": "By using this website, you agree to use it lawfully and respectfully and to follow these general terms. If you do not agree with them, please do not use the website. A project engagement may include additional terms agreed in a proposal, quotation, statement of work, or other written agreement."},
-        "use": {"title": "Website use and permitted conduct", "body": "You may browse the website and contact TIX for legitimate business or informational purposes. Do not attempt to gain unauthorized access, interfere with the website, submit malicious or unlawful material, impersonate another person, or use the website to infringe another person’s rights."},
-        "services": {"title": "Services and project information", "body": "The website presents examples of creative, marketing, production, branding, and digital services. Descriptions and examples are general information, not a promise that a particular service, result, availability, timeline, or deliverable will be provided. Project scope is confirmed separately."},
-        "proposals": {"title": "Proposals, quotations, and agreements", "body": "A project proposal or quotation may define the requested work, deliverables, timing, fees, approvals, revisions, usage rights, and responsibilities. Those project-specific terms become applicable only when accepted through the process stated in that document or in another written agreement between the parties."},
-        "intellectualProperty": {"title": "Intellectual property and ownership", "body": "Website text, design, images, videos, logos, and other materials belong to TIX or the relevant rights holder unless stated otherwise. You may not copy, modify, publish, sell, or commercially exploit them without permission. Ownership and usage rights for project deliverables are determined by the applicable project agreement and any third-party rights."},
-        "submittedMaterials": {"title": "User-submitted materials and content", "body": "When you send information or files through the contact form or another agreed channel, you confirm that you have the right to share them for the purpose of discussing your enquiry. Do not submit confidential material unless the parties have agreed how it should be handled. You remain responsible for the legality and accuracy of what you submit."},
-        "thirdParty": {"title": "Third-party websites and services", "body": "The website may link to social platforms or other third-party websites. TIX does not control those services and is not responsible for their content, availability, terms, or privacy practices. Review the applicable third-party terms before using an external service."},
-        "availability": {"title": "Website availability and modifications", "body": "TIX may update, suspend, or remove website content or functionality when reasonably necessary, including for maintenance, security, or changes to the studio’s work. Website content is provided as general information and may not always be complete, current, or uninterrupted."},
-        "liability": {"title": "Limitation of liability", "body": "To the extent permitted by applicable law, TIX is not responsible for indirect loss, loss of data, or loss arising from reliance on general website information or from a third-party service. Nothing in these terms excludes liability that cannot lawfully be excluded. Any project-specific responsibility is governed by the relevant written agreement."},
-        "changes": {"title": "Changes to these terms", "body": "TIX may revise these general terms when the website, services, or legal requirements change. The updated version will be posted on this page with a revised review note. Continued use of the website after an update means that you accept the updated general terms."},
-        "contact": {"title": "Contact information", "body": "For questions about these website terms or to discuss a project, contact TIX through the Contact page or email tix@gmail.com. A separate project agreement may be needed before work begins."}
+        "acceptance": {
+          "title": "Introduction and acceptance",
+          "body": "By using this website, you agree to use it lawfully and respectfully and to follow these general terms. If you do not agree with them, please do not use the website. A project engagement may include additional terms agreed in a proposal, quotation, statement of work, or other written agreement."
+        },
+        "use": {
+          "title": "Website use and permitted conduct",
+          "body": "You may browse the website and contact TIX for legitimate business or informational purposes. Do not attempt to gain unauthorized access, interfere with the website, submit malicious or unlawful material, impersonate another person, or use the website to infringe another person’s rights."
+        },
+        "services": {
+          "title": "Services and project information",
+          "body": "The website presents examples of creative, marketing, production, branding, and digital services. Descriptions and examples are general information, not a promise that a particular service, result, availability, timeline, or deliverable will be provided. Project scope is confirmed separately."
+        },
+        "proposals": {
+          "title": "Proposals, quotations, and agreements",
+          "body": "A project proposal or quotation may define the requested work, deliverables, timing, fees, approvals, revisions, usage rights, and responsibilities. Those project-specific terms become applicable only when accepted through the process stated in that document or in another written agreement between the parties."
+        },
+        "intellectualProperty": {
+          "title": "Intellectual property and ownership",
+          "body": "Website text, design, images, videos, logos, and other materials belong to TIX or the relevant rights holder unless stated otherwise. You may not copy, modify, publish, sell, or commercially exploit them without permission. Ownership and usage rights for project deliverables are determined by the applicable project agreement and any third-party rights."
+        },
+        "submittedMaterials": {
+          "title": "User-submitted materials and content",
+          "body": "When you send information or files through the contact form or another agreed channel, you confirm that you have the right to share them for the purpose of discussing your enquiry. Do not submit confidential material unless the parties have agreed how it should be handled. You remain responsible for the legality and accuracy of what you submit."
+        },
+        "thirdParty": {
+          "title": "Third-party websites and services",
+          "body": "The website may link to social platforms or other third-party websites. TIX does not control those services and is not responsible for their content, availability, terms, or privacy practices. Review the applicable third-party terms before using an external service."
+        },
+        "availability": {
+          "title": "Website availability and modifications",
+          "body": "TIX may update, suspend, or remove website content or functionality when reasonably necessary, including for maintenance, security, or changes to the studio’s work. Website content is provided as general information and may not always be complete, current, or uninterrupted."
+        },
+        "liability": {
+          "title": "Limitation of liability",
+          "body": "To the extent permitted by applicable law, TIX is not responsible for indirect loss, loss of data, or loss arising from reliance on general website information or from a third-party service. Nothing in these terms excludes liability that cannot lawfully be excluded. Any project-specific responsibility is governed by the relevant written agreement."
+        },
+        "changes": {
+          "title": "Changes to these terms",
+          "body": "TIX may revise these general terms when the website, services, or legal requirements change. The updated version will be posted on this page with a revised review note. Continued use of the website after an update means that you accept the updated general terms."
+        },
+        "contact": {
+          "title": "Contact information",
+          "body": "For questions about these website terms or to discuss a project, contact TIX through the Contact page or email tix@gmail.com. A separate project agreement may be needed before work begins."
+        }
       }
     },
     "privacy": {
       "title": "Privacy Policy",
       "intro": "This policy describes the information the reviewed TIX website receives through its contact flow and how that information may be used to respond to enquiries.",
       "sections": {
-        "scope": {"title": "Introduction and scope", "body": "This policy applies to the public TIX website and its contact form. It is based on the website implementation reviewed for this project. A third-party platform linked from the website may have its own privacy notice and practices."},
-        "collected": {"title": "Information collected through the website", "body": "When you browse the site, the application serves page content, images, fonts, and other resources needed to display it. The reviewed application does not include an analytics or advertising integration. Hosting, security, browser, or network providers may process technical request information as part of delivering and protecting a website."},
-        "submitted": {"title": "Information voluntarily submitted through the contact form", "body": "The form asks for your name, email address, company or project description, and a description of how TIX can help. It also includes a hidden anti-spam field. Please avoid sending passwords, payment details, government identifiers, or other information that is not needed to discuss your enquiry."},
-        "use": {"title": "How information is used", "body": "Information submitted through the form is used to understand and respond to your enquiry, communicate about a potential project, and prepare an appropriate discussion or proposal. The form’s email delivery flow uses the submitted email as a reply address so TIX can respond."},
-        "sharing": {"title": "Data sharing and service providers", "body": "A submitted enquiry may be transmitted to the configured email delivery provider so it can be delivered to TIX. The website also links to social platforms operated by third parties. TIX does not sell contact-form information. The exact providers and operational accounts used for a particular deployment should be confirmed by the business owner."},
-        "cookies": {"title": "Cookies and similar technologies", "body": "The reviewed application does not intentionally create an application cookie or local browser storage entry for the contact form, and no analytics or advertising script was identified in the repository review. A hosting, security, embedded, or linked third-party service may use its own technologies under its own notice."},
-        "retention": {"title": "Data retention", "body": "The repository does not define a fixed retention period or an automatic deletion workflow for enquiries. TIX should retain information only for as long as reasonably needed to handle the enquiry, maintain appropriate business records, or meet applicable obligations, subject to the business owner’s confirmed practices."},
-        "security": {"title": "Data security", "body": "TIX uses reasonable measures available in the website implementation to validate contact submissions and limit malformed requests. No website can guarantee absolute security, and the appropriate handling of submitted information also depends on the configured email provider, accounts, and access controls."},
-        "externalServices": {"title": "External links and third-party services", "body": "Links to Instagram, Facebook, LinkedIn, WhatsApp, TikTok, and other external services take you outside the TIX website. Their operators may collect information under their own policies. Check those policies before sharing information with them."},
-        "requests": {"title": "Privacy requests and contact method", "body": "If you have a question about an enquiry you sent through the website, contact TIX at tix@gmail.com or use the Contact page. The website does not currently describe a dedicated automated request portal, identity-verification process, or fixed response period; those details should be confirmed by TIX when a request is received."},
-        "updates": {"title": "Policy updates", "body": "This policy may be updated when the website, its providers, or its information practices change. The current version will be published on this page with an updated review note."},
-        "contact": {"title": "Contact information", "body": "For privacy questions about a website enquiry, contact TIX at tix@gmail.com. Do not send highly sensitive information through an ordinary website enquiry."}
+        "scope": {
+          "title": "Introduction and scope",
+          "body": "This policy applies to the public TIX website and its contact form. It is based on the website implementation reviewed for this project. A third-party platform linked from the website may have its own privacy notice and practices."
+        },
+        "collected": {
+          "title": "Information collected through the website",
+          "body": "When you browse the site, the application serves page content, images, fonts, and other resources needed to display it. The reviewed application does not include an analytics or advertising integration. Hosting, security, browser, or network providers may process technical request information as part of delivering and protecting a website."
+        },
+        "submitted": {
+          "title": "Information voluntarily submitted through the contact form",
+          "body": "The form asks for your name, email address, company or project description, and a description of how TIX can help. It also includes a hidden anti-spam field. Please avoid sending passwords, payment details, government identifiers, or other information that is not needed to discuss your enquiry."
+        },
+        "use": {
+          "title": "How information is used",
+          "body": "Information submitted through the form is used to understand and respond to your enquiry, communicate about a potential project, and prepare an appropriate discussion or proposal. The form’s email delivery flow uses the submitted email as a reply address so TIX can respond."
+        },
+        "sharing": {
+          "title": "Data sharing and service providers",
+          "body": "A submitted enquiry may be transmitted to the configured email delivery provider so it can be delivered to TIX. The website also links to social platforms operated by third parties. TIX does not sell contact-form information. The exact providers and operational accounts used for a particular deployment should be confirmed by the business owner."
+        },
+        "cookies": {
+          "title": "Cookies and similar technologies",
+          "body": "The reviewed application does not intentionally create an application cookie or local browser storage entry for the contact form, and no analytics or advertising script was identified in the repository review. A hosting, security, embedded, or linked third-party service may use its own technologies under its own notice."
+        },
+        "retention": {
+          "title": "Data retention",
+          "body": "The repository does not define a fixed retention period or an automatic deletion workflow for enquiries. TIX should retain information only for as long as reasonably needed to handle the enquiry, maintain appropriate business records, or meet applicable obligations, subject to the business owner’s confirmed practices."
+        },
+        "security": {
+          "title": "Data security",
+          "body": "TIX uses reasonable measures available in the website implementation to validate contact submissions and limit malformed requests. No website can guarantee absolute security, and the appropriate handling of submitted information also depends on the configured email provider, accounts, and access controls."
+        },
+        "externalServices": {
+          "title": "External links and third-party services",
+          "body": "Links to Instagram, Facebook, LinkedIn, WhatsApp, TikTok, and other external services take you outside the TIX website. Their operators may collect information under their own policies. Check those policies before sharing information with them."
+        },
+        "requests": {
+          "title": "Privacy requests and contact method",
+          "body": "If you have a question about an enquiry you sent through the website, contact TIX at tix@gmail.com or use the Contact page. The website does not currently describe a dedicated automated request portal, identity-verification process, or fixed response period; those details should be confirmed by TIX when a request is received."
+        },
+        "updates": {
+          "title": "Policy updates",
+          "body": "This policy may be updated when the website, its providers, or its information practices change. The current version will be published on this page with an updated review note."
+        },
+        "contact": {
+          "title": "Contact information",
+          "body": "For privacy questions about a website enquiry, contact TIX at tix@gmail.com. Do not send highly sensitive information through an ordinary website enquiry."
+        }
       }
     }
   }
